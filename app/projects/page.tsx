@@ -3,28 +3,35 @@ import Link from "next/link"
 
 export default function ProjectsPage() {
   const projects = [
-    {
-      slug: "safari-chrome-extension",
-      title: "Safari + Chrome Web Extension",
-      date: "Aug 2024",
-      category: "Extension",
-      image: "/placeholder.jpg",
-    },
-    {
-      slug: "rag-cs-assistant",
-      title: "RAG + CS Assistant",
-      date: "Mar 2024",
-      category: "AI / Chatbot",
-      image: "/placeholder.jpg",
-    },
-    {
-      slug: "order-tracking-scraper",
-      title: "Order-tracking Scraper",
-      date: "May 2024",
-      category: "Automation",
-      image: "/placeholder.jpg",
-    },
-  ]
+			{
+				slug: "safari-chrome-extension",
+				title: "Safari + Chrome Web Extension",
+				date: "Aug 2024",
+				category: "Extension",
+				image: "/placeholder.jpg",
+			},
+			{
+				slug: "rag-cs-assistant",
+				title: "RAG + CS Assistant",
+				date: "Mar 2024",
+				category: "AI / Chatbot",
+				image: "/placeholder.jpg",
+			},
+			{
+				slug: "order-tracking-scraper",
+				title: "Order-tracking Scraper",
+				date: "May 2024",
+				category: "Automation",
+				image: "/placeholder.jpg",
+			},
+			{
+				slug: "linear-mcp",
+				title: "Linear MCP",
+				date: "2025",
+				category: "Workers / MCP",
+				image: "/linear-mcp-card.png",
+			},
+		];
 
   return (
 			<div className="min-h-screen bg-background text-foreground">
