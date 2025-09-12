@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Removed dark mode custom variant that was causing the error */
+
+:root {
+  /* Core palette */
+  --white: oklch(1 0 0);
+  --black: oklch(0.145 0 0);
+  --light-gray: oklch(0.97 0 0);
+  --medium-gray: oklch(0.556 0 0);
+
+  /* Light mode defaults */
+  --background: var(--white);
+  --foreground: var(--black);
+  --card: var(--light-gray);
+  --card-foreground: var(--black);
+  --popover: var(--white);
+  --popover-foreground: var(--black);
+  --primary: var(--black);
+  --primary-foreground: var(--white);
+  --secondary: var(--light-gray);
+  --secondary-foreground: var(--black);
+  --muted: var(--light-gray);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: var(--black);
+  --accent-foreground: var(--white);
+  --destructive: oklch(0.5 0.22 15);
+  --destructive-foreground: var(--white);
+  --border: oklch(0.94 0 0);
+  --input: var(--light-gray);
+  --ring: oklch(0.145 0 0 / 0.2);
+  --chart-1: var(--black);
+  --chart-2: var(--medium-gray);
+  --chart-3: var(--light-gray);
+  --chart-4: oklch(0.98 0.02 180);
+  --chart-5: oklch(0.5 0.22 15);
+  --radius: 0.5rem;
+  --sidebar: var(--white);
+  --sidebar-foreground: var(--black);
+  --sidebar-primary: var(--black);
+  --sidebar-primary-foreground: var(--white);
+  --sidebar-accent: var(--medium-gray);
+  --sidebar-accent-foreground: var(--white);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.145 0 0 / 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--black);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.18 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: var(--black);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: var(--black);
+    --secondary: oklch(0.2 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.985 0 0);
+    --accent-foreground: var(--black);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.2 0 0);
+    --ring: oklch(0.985 0 0 / 0.2);
+    --chart-1: oklch(0.9 0 0);
+    --chart-2: oklch(0.7 0 0);
+    --chart-3: oklch(0.3 0 0);
+    --chart-4: oklch(0.6 0.02 180);
+    --chart-5: oklch(0.7 0.22 15);
+    --sidebar: var(--black);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.985 0 0);
+    --sidebar-primary-foreground: var(--black);
+    --sidebar-accent: oklch(0.5 0 0);
+    --sidebar-accent-foreground: var(--white);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.985 0 0 / 0.2);
+  }
+}
+
+/* Class-based theming for next-themes */
+.light {
+  --background: var(--white);
+  --foreground: var(--black);
+  --card: var(--light-gray);
+  --card-foreground: var(--black);
+  --popover: var(--white);
+  --popover-foreground: var(--black);
+  --primary: var(--black);
+  --primary-foreground: var(--white);
+  --secondary: var(--light-gray);
+  --secondary-foreground: var(--black);
+  --muted: var(--light-gray);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: var(--black);
+  --accent-foreground: var(--white);
+  --border: oklch(0.94 0 0);
+  --input: var(--light-gray);
+  --ring: oklch(0.145 0 0 / 0.2);
+}
+
+.dark {
+  --background: var(--black);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: var(--black);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: var(--black);
+  --secondary: oklch(0.2 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.72 0 0);
+  --accent: oklch(0.985 0 0);
+  --accent-foreground: var(--black);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.2 0 0);
+  --ring: oklch(0.985 0 0 / 0.2);
+}
+
+/* Completely removed .dark block that was causing utility class errors */
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-background;
+  }
+  body {
+    @apply bg-background text-foreground min-h-screen overscroll-none;
+  }
+}
+
+/* Fade-in animation utility */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fade-in 420ms ease-out 0ms 1 both;
+  }
+}
+
+/* Top-to-bottom reveal utility */
+@keyframes reveal-down {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0% 0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-down {
+    animation: reveal-down 560ms ease-out 0ms 1 both;
+  }
+}
+
+@keyframes text-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .text-fade-scope h1,
+  .text-fade-scope h2,
+  .text-fade-scope h3,
+  .text-fade-scope h4,
+  .text-fade-scope h5,
+  .text-fade-scope h6,
+  .text-fade-scope p,
+  .text-fade-scope span,
+  .text-fade-scope a,
+  .text-fade-scope li,
+  .text-fade-scope dt,
+  .text-fade-scope dd,
+  .text-fade-scope small,
+  .text-fade-scope em,
+  .text-fade-scope strong,
+  .text-fade-scope blockquote,
+  .text-fade-scope label,
+  .text-fade-scope figcaption {
+    animation: text-fade-in 900ms ease-out 100ms 1 both;
+  }
+}
+
+/* Name hover swap: default first is foreground, last is muted; on hover swap */
+.name-pair .first {
+  color: var(--color-foreground);
+  transition: color 200ms ease;
+}
+.name-pair .last {
+  color: var(--color-muted-foreground);
+  transition: color 200ms ease;
+}
+/* Flip only when hovering the last name */
+.name-pair:has(.last:hover) .first,
+.name-pair:has(.last:focus-visible) .first {
+  color: var(--color-muted-foreground);
+}
+.name-pair:has(.last:hover) .last,
+.name-pair:has(.last:focus-visible) .last {
+  color: var(--color-foreground);
+}
