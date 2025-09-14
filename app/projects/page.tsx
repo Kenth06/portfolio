@@ -4,6 +4,13 @@ import Link from "next/link"
 export default function ProjectsPage() {
   const projects = [
 			{
+				slug: "linear-mcp",
+				title: "Linear MCP",
+				date: "Sep 2025",
+				category: "Workers / MCP",
+				image: "/linear-mcp-card.png",
+			},
+			{
 				slug: "safari-chrome-extension",
 				title: "Safari + Chrome Web Extension",
 				date: "Aug 2024",
@@ -23,13 +30,6 @@ export default function ProjectsPage() {
 				date: "May 2024",
 				category: "Automation",
 				image: "/placeholder.jpg",
-			},
-			{
-				slug: "linear-mcp",
-				title: "Linear MCP",
-				date: "2025",
-				category: "Workers / MCP",
-				image: "/linear-mcp-card.png",
 			},
 		];
 

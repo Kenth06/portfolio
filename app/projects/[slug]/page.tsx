@@ -59,23 +59,29 @@ const projectsData = {
 		date: "Sep 2025",
 		category: "Workers / MCP",
 		description:
-			"Remote MCP server to manage Linear via HTTP on Cloudflare Workers. Built with TypeScript, Hono, and the MCP SDK. Can be used from any LLM client that supports MCP servers.",
+			"MCP server that brings Linear’s issue, project and roadmap workflows to any LLM client (Cursor/Claude/ChatGPT). Low‑latency Cloudflare Worker with secure secrets and optional webhooks.",
 		content: `
-      What I built:
-      • An MCP server that exposes Linear tools (create/update/delete/comment, list, get, webhooks) behind a clean JSON-RPC interface.
-      • Runs on Cloudflare Workers for low-latency, globally-distributed execution and simple secret management.
-      • Strong typing and a small Hono router for fast, maintainable endpoints.
+      About Linear:
+      • Linear is a purpose‑built tool for modern product development — issues, projects, roadmaps and cycles.
 
-      Capabilities:
-      • Create/update/delete/comment issues by id or key (ENG-123).
-      • List issues with filters: team, assignee, state, date ranges; supports pagination.
-      • Get a single issue with enriched fields; map human-friendly state names to IDs.
-      • Webhooks with HMAC verification and optional signed forwarding.
-      • Typed responses, consistent error mapping, basic rate-limit handling.
+      What I built:
+      • A typed MCP server exposing Linear tools behind a clean JSON‑RPC contract.
+      • Runs on Cloudflare Workers for globally distributed, fast execution and simple secret management.
+      • Small Hono router + GraphQL helpers; human‑friendly inputs are resolved to Linear IDs when needed.
+
+      Capabilities (tools):
+      • linearCreateIssue — create by team key; supports due dates.
+      • linearUpdateIssue — update title/description/state (accepts state name/type alias), assignee, due date.
+      • linearComment — add Markdown comments by id or key (e.g., ENG‑123).
+      • linearDeleteIssue — remove issues by id or key.
+      • linearListIssues — filter by team, assignee, state and date ranges (supports pagination).
+      • linearListIssuesToday — issues updated today for a team or assignee.
+      • linearGetIssue — detailed single issue (with relationships).
+      • linearWebhookCreate / linearWebhookDelete — HMAC‑validated webhooks; optional signed forwarding.
 
       Why it matters:
-      • Drop-in for MCP-compatible LLM clients (e.g., desktop assistants/Cursor/OpenAI/Claude) to operate on Linear issues with guardrails.
-      • Secure by design: all credentials via Workers Secrets and HMAC verification for webhooks.
+      • Operate Linear from LLM clients with guardrails; automate triage, updates and project routines.
+      • Secure by design — credentials in Workers Secrets; HMAC verification for webhooks.
     `,
 		tech: ["Cloudflare Workers", "TypeScript", "Hono", "MCP", "Linear API"],
 		github: "https://github.com/Kenth06/linear-mcp",
