@@ -75,7 +75,7 @@ export const projects: Project[] = [
       "Handled sensitive workflow data carefully while keeping the extension lightweight.",
     ],
     tech: ["TypeScript", "Web Extensions", "Chrome", "Safari"],
-    cardImage: "/placeholder.jpg",
+    cardImage: "/Safari + Chrome.png",
   },
   {
     slug: "order-tracking-scraper",
