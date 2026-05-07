@@ -58,7 +58,7 @@ export const projects: Project[] = [
     ],
     tech: ["Cloudflare Workers", "TypeScript", "Hono", "MCP", "Linear API"],
     github: "https://github.com/Kenth06/linear-mcp",
-    cardImage: "/placeholder.jpg",
+    cardImage: "/linear-mcp-card.png",
     detailImages: ["/linear-mcp-hero.png", "/linear-mcp-card.png"]
   },
   {
