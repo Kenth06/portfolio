@@ -13,12 +13,6 @@
     "enabled": false
   },
   "files": {
-    "ignore": [
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "build/**",
-      ".open-next/**"
-    ]
+    "ignore": ["node_modules/**", "dist/**", ".wrangler/**"]
   }
 }
