@@ -32,13 +32,13 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/experience", label: "Experience" },
-  { href: "/skills", label: "Skills" }
+  { href: "/skills", label: "Skills" },
 ] as const;
 
 export const socialLinks = [
   { href: "https://github.com/Kenth06", label: "Github" },
   { href: "https://linkedin.com/in/kenneth-r-7328b8230", label: "LinkedIn" },
-  { href: "mailto:kennethfi646@gmail.com", label: "Email" }
+  { href: "mailto:kennethfi646@gmail.com", label: "Email" },
 ] as const;
 
 export const projects: Project[] = [
@@ -54,12 +54,12 @@ export const projects: Project[] = [
       "A typed MCP server exposing Linear tools behind a clean JSON-RPC contract.",
       "Runs on Cloudflare Workers for globally distributed execution and simple secret management.",
       "Uses a small Hono router and GraphQL helpers to resolve human-friendly inputs into Linear IDs.",
-      "Supports issue creation, updates, comments, deletion, filtering, detail lookup, and HMAC-validated webhook forwarding."
+      "Supports issue creation, updates, comments, deletion, filtering, detail lookup, and HMAC-validated webhook forwarding.",
     ],
     tech: ["Cloudflare Workers", "TypeScript", "Hono", "MCP", "Linear API"],
     github: "https://github.com/Kenth06/linear-mcp",
     cardImage: "/linear-mcp-card.png",
-    detailImages: ["/linear-mcp-hero.png", "/linear-mcp-card.png"]
+    detailImages: ["/linear-mcp-hero.png"],
   },
   {
     slug: "safari-chrome-extension",
@@ -67,14 +67,15 @@ export const projects: Project[] = [
     date: "August 2024",
     shortDate: "Aug 2024",
     category: "Extension",
-    summary: "Cross-browser extension built to streamline internal purchasing workflows at RednBlue.",
+    summary:
+      "Cross-browser extension built to streamline internal purchasing workflows at RednBlue.",
     details: [
       "Built a cross-browser extension for Safari and Chrome using modern web extension APIs.",
       "Improved internal purchase flows with a faster, cleaner interface for repeated operational tasks.",
-      "Handled sensitive workflow data carefully while keeping the extension lightweight."
+      "Handled sensitive workflow data carefully while keeping the extension lightweight.",
     ],
     tech: ["TypeScript", "Web Extensions", "Chrome", "Safari"],
-    cardImage: "/placeholder.jpg"
+    cardImage: "/placeholder.jpg",
   },
   {
     slug: "order-tracking-scraper",
@@ -82,14 +83,15 @@ export const projects: Project[] = [
     date: "May 2024",
     shortDate: "May 2024",
     category: "Automation",
-    summary: "Scraper and webhook service built on Cloudflare Workers for order tracking.",
+    summary:
+      "Scraper and webhook service built on Cloudflare Workers for order tracking.",
     details: [
       "Monitors order status and triggers webhooks when meaningful changes occur.",
       "Uses scheduled scraping, resilient error handling, and a small Worker deployment footprint.",
-      "Designed to automate a repetitive internal tracking process without adding operational weight."
+      "Designed to automate a repetitive internal tracking process without adding operational weight.",
     ],
     tech: ["Cloudflare Workers", "TypeScript", "Webhooks"],
-    cardImage: "/placeholder.jpg"
+    cardImage: "/placeholder.jpg",
   },
   {
     slug: "rag-cs-assistant",
@@ -97,15 +99,16 @@ export const projects: Project[] = [
     date: "March 2024",
     shortDate: "Mar 2024",
     category: "AI / Chatbot",
-    summary: "Retrieval-augmented customer service assistant with function calling and integrations.",
+    summary:
+      "Retrieval-augmented customer service assistant with function calling and integrations.",
     details: [
       "Built RAG over a support knowledge base with tool/function calling for operational workflows.",
       "Used Cloudflare Workers, D1, Drizzle ORM, Vectorize, OpenAI embeddings, LangChain, and KV.",
-      "Focused on useful retrieval, integration ergonomics, and observability-friendly behavior."
+      "Focused on useful retrieval, integration ergonomics, and observability-friendly behavior.",
     ],
     tech: ["Cloudflare Workers", "RAG", "LangChain", "OpenAI", "Vectorize"],
-    cardImage: "/placeholder.jpg"
-  }
+    cardImage: "/placeholder.jpg",
+  },
 ];
 
 export const experience: Experience[] = [
@@ -116,8 +119,8 @@ export const experience: Experience[] = [
     location: "Panama",
     highlights: [
       "Current full-stack role in insurance technology, building production software across frontend and backend systems.",
-      "Bringing AI engineering, automation, and Cloudflare-oriented delivery experience into enterprise workflows."
-    ]
+      "Bringing AI engineering, automation, and Cloudflare-oriented delivery experience into enterprise workflows.",
+    ],
   },
   {
     role: "Software Developer | AI Engineer",
@@ -130,8 +133,8 @@ export const experience: Experience[] = [
       "Built multi-agent code review systems with supervisor architecture, durable checkpoints, and human approval endpoints.",
       "Developed self-correcting pipelines that generate, compile, test, and deploy full-stack applications from natural language.",
       "Created AI tooling integrated with GitHub for code review, bug fixing, documentation, and direct commits.",
-      "Implemented evaluation pipelines with GEPA and PromptFoo to measure and improve production agent behavior."
-    ]
+      "Implemented evaluation pipelines with GEPA and PromptFoo to measure and improve production agent behavior.",
+    ],
   },
   {
     role: "Software Developer | AI Engineering",
@@ -144,8 +147,8 @@ export const experience: Experience[] = [
       "Built conversational AI for a pharmacy chain with 9 tools, bilingual support, policy pre-flight checks, and 106 documented evaluation cases.",
       "Developed real-time voice interview automation with screening, follow-up, scoring, and mid-session AI agent handoffs.",
       "Shipped 15+ typed MCP tools across 3 production servers for logistics, customer operations, and shipping workflows.",
-      "Built 20+ automation microservices for tracking scrapers, CRM sync, audio transcription, document extraction, email processing, and invoice generation."
-    ]
+      "Built 20+ automation microservices for tracking scrapers, CRM sync, audio transcription, document extraction, email processing, and invoice generation.",
+    ],
   },
   {
     role: "Software Development Intern",
@@ -155,9 +158,9 @@ export const experience: Experience[] = [
     location: "David, Chiriqui, Panama",
     highlights: [
       "Built a customer service chatbot with RAG and function calling from scratch, my first production AI engineering work.",
-      "Worked with JavaScript, TypeScript, OpenAI, RAG, LLMs, object-oriented programming, Git, and Cloudflare."
-    ]
-  }
+      "Worked with JavaScript, TypeScript, OpenAI, RAG, LLMs, object-oriented programming, Git, and Cloudflare.",
+    ],
+  },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -165,41 +168,69 @@ export const skillGroups: SkillGroup[] = [
     title: "AI / ML",
     summary:
       "LLMs, RAG, embeddings, prompt engineering, LangChain, and vector databases such as Vectorize and Pinecone.",
-    items: ["LLMs", "RAG", "Embeddings", "Prompt Engineering", "LangChain", "Vectorize", "Pinecone", "OpenAI"]
+    items: [
+      "LLMs",
+      "RAG",
+      "Embeddings",
+      "Prompt Engineering",
+      "LangChain",
+      "Vectorize",
+      "Pinecone",
+      "OpenAI",
+    ],
   },
   {
     title: "Backend",
     summary:
       "Node.js, TypeScript, Express, Hono, REST, JWT, automation, scraping, Puppeteer, Cheerio, and Steel.dev.",
-    items: ["Node.js", "TypeScript", "Express", "Hono", "REST", "JWT", "Puppeteer", "Cheerio", "Steel.dev"]
+    items: [
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "Hono",
+      "REST",
+      "JWT",
+      "Puppeteer",
+      "Cheerio",
+      "Steel.dev",
+    ],
   },
   {
     title: "Cloud / Infra",
     summary:
       "Cloudflare Workers, Docker, Redis, BullMQ, Email Workers, queues, automation, and Sentry.",
-    items: ["Cloudflare Workers", "Docker", "Redis", "BullMQ", "Email Workers", "Queues", "Automation", "Sentry"]
-  }
+    items: [
+      "Cloudflare Workers",
+      "Docker",
+      "Redis",
+      "BullMQ",
+      "Email Workers",
+      "Queues",
+      "Automation",
+      "Sentry",
+    ],
+  },
 ];
 
 export const homeEntries = [
   {
     date: "May 2026-Now",
     title: "Full Stack Developer at ASSA Compania de Seguros",
-    href: "/experience"
+    href: "/experience",
   },
   {
     date: "Jan-Apr 2026",
     title: "Software Developer | AI Engineer at Zelta",
-    href: "/experience"
+    href: "/experience",
   },
   {
     date: "Apr 2024-Feb 2026",
     title: "Software Developer | AI Engineering at RednBlue",
-    href: "/experience"
+    href: "/experience",
   },
   {
     date: "Feb-Apr 2024",
     title: "Software Development Intern at RednBlue",
-    href: "/experience"
-  }
+    href: "/experience",
+  },
 ];
