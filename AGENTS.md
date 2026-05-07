@@ -13,6 +13,7 @@ experience quiet, fast, and easy to scan.
 - `pnpm dev` starts the local Vite dev server.
 - `pnpm typecheck` runs TypeScript validation.
 - `pnpm build` creates the production build in `dist/`.
+- `pnpm lint` runs Oxlint.
 - `pnpm preview` serves the production build locally.
 - `pnpm run deploy` deploys with Wrangler.
 - `pnpm cf:typegen` regenerates `cloudflare-env.d.ts` after `wrangler.jsonc`
@@ -69,6 +70,7 @@ Before handing off substantial changes, run:
 
 ```bash
 pnpm typecheck
+pnpm lint
 pnpm build
 ```
 

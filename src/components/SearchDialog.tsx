@@ -1,13 +1,12 @@
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { searchPortfolio } from "../search";
 
 export function SearchDialog() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
-  const location = useLocation();
   const results = useMemo(() => searchPortfolio(query), [query]);
 
   useEffect(() => {
@@ -23,10 +22,6 @@ export function SearchDialog() {
     };
   }, [open]);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
-
   return (
     <>
       <button className="icon-button search-button" type="button" aria-label="search" onClick={() => setOpen(true)}>
@@ -34,13 +29,18 @@ export function SearchDialog() {
       </button>
 
       {open ? (
-        <div className="search-layer" role="presentation" onMouseDown={() => setOpen(false)}>
+        <div className="search-layer" role="presentation">
+          <button
+            className="search-backdrop"
+            type="button"
+            aria-label="Close search"
+            onClick={() => setOpen(false)}
+          />
           <section
             className="search-panel"
             role="dialog"
             aria-modal="true"
             aria-label="Search portfolio"
-            onMouseDown={(event) => event.stopPropagation()}
           >
             <div className="search-panel-header">
               <input
@@ -58,7 +58,7 @@ export function SearchDialog() {
             <ul className="search-results">
               {results.map((result) => (
                 <li key={`${result.href}-${result.title}`}>
-                  <Link to={result.href}>
+                  <Link to={result.href} onClick={() => setOpen(false)}>
                     <span>{result.title}</span>
                     <small>{result.description}</small>
                   </Link>

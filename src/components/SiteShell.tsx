@@ -1,6 +1,6 @@
+import { Github, Linkedin, Mail } from "lucide-react";
 import type { ReactNode } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Github, Linkedin, Mail } from "lucide-react";
 import { navItems, socialLinks } from "../content";
 import { LogoMark } from "./LogoMark";
 import { SearchDialog } from "./SearchDialog";
