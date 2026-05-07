@@ -1,6 +1,5 @@
 import { Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import { searchPortfolio } from "../search";
 
 export function SearchDialog() {
@@ -58,10 +57,10 @@ export function SearchDialog() {
             <ul className="search-results">
               {results.map((result) => (
                 <li key={`${result.href}-${result.title}`}>
-                  <Link to={result.href} onClick={() => setOpen(false)}>
+                  <a href={result.href} onClick={() => setOpen(false)}>
                     <span>{result.title}</span>
                     <small>{result.description}</small>
-                  </Link>
+                  </a>
                 </li>
               ))}
               {results.length === 0 ? <li className="empty-search">No matches</li> : null}

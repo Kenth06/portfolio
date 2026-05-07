@@ -1,11 +1,47 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true,
+    "es2026": true,
+    "node": true
+  },
   "plugins": ["react", "jsx-a11y", "typescript", "import"],
   "categories": {
-    "correctness": "error"
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "settings": {
+    "react": {
+      "version": "18.3.1",
+      "linkComponents": [
+        {
+          "name": "Link",
+          "linkAttribute": "to"
+        },
+        {
+          "name": "NavLink",
+          "linkAttribute": "to"
+        }
+      ]
+    },
+    "jsx-a11y": {
+      "components": {
+        "Link": "a",
+        "NavLink": "a"
+      },
+      "attributes": {
+        "href": ["href", "to"]
+      }
+    }
+  },
+  "options": {
+    "denyWarnings": true,
+    "reportUnusedDisableDirectives": "error"
   },
   "rules": {
     "no-console": "off",
+    "import/no-unassigned-import": "off",
     "no-unused-vars": [
       "error",
       {
@@ -16,6 +52,7 @@
     ],
     "jsx-a11y/no-static-element-interactions": "error",
     "react/exhaustive-deps": "warn",
+    "react/react-in-jsx-scope": "off",
     "typescript/no-explicit-any": "warn"
   },
   "ignorePatterns": [
