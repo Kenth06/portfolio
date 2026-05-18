@@ -284,23 +284,28 @@ export const skillGroups: SkillGroup[] = [
 
 export const homeEntries = [
   {
-    date: "May 2026-Now",
-    title: "Full Stack Developer at ASSA Compania de Seguros",
+    date: "May 2026 to Now",
+    title: "Full Stack Developer at ASSA Compañía de Seguros",
     href: "/experience",
   },
   {
-    date: "Jan-Apr 2026",
-    title: "Software Developer | AI Engineer at Zelta",
+    date: "Feb 2026 to Apr 2026",
+    title: "AI Engineer at Zelta",
     href: "/experience",
   },
   {
-    date: "Apr 2024-Feb 2026",
-    title: "Software Developer | AI Engineering at RednBlue",
+    date: "Apr 2024 to Feb 2026",
+    title: "Software Developer · AI Engineering at RednBlue",
     href: "/experience",
   },
   {
-    date: "Feb-Apr 2024",
+    date: "Feb 2024 to Apr 2024",
     title: "Software Development Intern at RednBlue",
+    href: "/experience",
+  },
+  {
+    date: "Dec 2023 to Feb 2024",
+    title: "Customer Service Team Supervisor at RednBlue",
     href: "/experience",
   },
 ];
