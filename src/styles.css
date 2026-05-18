@@ -174,25 +174,36 @@ p {
   overflow: visible;
 }
 
-.logo-tile {
-  fill: #17a7ff;
-  stroke: #07171f;
-  stroke-width: 2;
+.logo-edges line {
+  stroke: var(--logo-edge);
+  stroke-width: 1.25;
+  stroke-linecap: round;
   shape-rendering: geometricPrecision;
 }
 
-.logo-b,
-.logo-d,
-.logo-f {
-  fill: #008de7;
+.logo-node {
+  shape-rendering: geometricPrecision;
+  transition: fill 200ms ease, transform 200ms ease;
 }
 
-.logo-line {
-  fill: none;
-  stroke: var(--theme-accent-2);
-  stroke-linecap: round;
-  stroke-width: 1.5;
-  opacity: 0.75;
+.logo-node-satellite {
+  fill: var(--logo-satellite);
+}
+
+.logo-node-core {
+  fill: var(--logo-core);
+}
+
+.logo-node-core-inner {
+  fill: var(--theme-bg);
+}
+
+.brand-link:hover .logo-node-satellite {
+  fill: var(--logo-core);
+}
+
+.brand-link:hover .logo-edges line {
+  stroke: color-mix(in srgb, var(--logo-core) 35%, var(--logo-edge));
 }
 
 .brand-text {
