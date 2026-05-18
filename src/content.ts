@@ -119,8 +119,9 @@ export const experience: Experience[] = [
     period: "May 2026 to Present",
     location: "Panama",
     highlights: [
-      "Current full-stack role in insurance technology, building production software across frontend and backend systems.",
-      "Bringing AI engineering, automation, and Cloudflare-oriented delivery experience into enterprise workflows.",
+      "Helping bring AI capabilities into the company's existing platforms: agents, small tools, microservices, and [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) / graph-RAG pipelines used in day-to-day workflows.",
+      "Working across TypeScript, React, .NET / C# ASP.NET, and Python, on Azure and Azure DevOps under agile delivery.",
+      "Trying to extend what is already in place carefully, with an eye on security, auditability, and reliability.",
     ],
   },
   {
