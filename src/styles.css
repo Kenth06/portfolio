@@ -148,9 +148,9 @@ p {
   position: relative;
   display: flex;
   align-items: flex-start;
-  min-height: 64px;
-  margin-bottom: 112px;
-  padding-left: 72px;
+  min-height: 56px;
+  margin-bottom: 96px;
+  padding-left: 68px;
 }
 
 .brand-link {
@@ -163,8 +163,8 @@ p {
   position: absolute;
   left: 0;
   top: 0;
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   overflow: visible;
 }
 
@@ -192,20 +192,22 @@ p {
 .brand-text {
   display: block;
   color: var(--theme-text);
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 28px;
+  letter-spacing: -0.018em;
 }
 
 .main-nav {
   position: absolute;
   left: 56px;
-  top: 36px;
+  top: 32px;
   display: flex;
   margin-top: 0;
   color: var(--theme-accent);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 24px;
+  letter-spacing: -0.005em;
 }
 
 .main-nav a {
