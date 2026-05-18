@@ -11,6 +11,9 @@
   --footer-text: oklch(0.551 0.027 264.364);
   --button-bg: oklch(0.93 0.004 286.32);
   --ring: oklch(0.551 0.027 264.364);
+  --logo-core: #0f1114;
+  --logo-satellite: #4a5560;
+  --logo-edge: #b8bec6;
 }
 
 :root.dark {
@@ -26,6 +29,9 @@
   --footer-text: oklch(0.62 0.027 264.364);
   --button-bg: oklch(0.32 0.013 285.805);
   --ring: oklch(0.62 0.027 264.364);
+  --logo-core: #f5f6f7;
+  --logo-satellite: #9aa3ad;
+  --logo-edge: #3a3f45;
 }
 
 *,
