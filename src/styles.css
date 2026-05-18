@@ -1,14 +1,15 @@
 :root {
   color-scheme: light;
   --theme-bg: #ffffff;
-  --theme-link: #567c77;
-  --theme-text: #22272a;
-  --theme-accent: #cc2a42;
-  --theme-accent-2: #111;
-  --theme-quote: #cc2a42;
+  --theme-link: #5a6470;
+  --theme-text: #1c2024;
+  --theme-muted: #6b7480;
+  --theme-accent: #3a4a5c;
+  --theme-accent-2: #0f1114;
+  --theme-quote: #3a4a5c;
   --theme-menu-bg: #ffffffe6;
   --footer-text: oklch(0.551 0.027 264.364);
-  --button-bg: oklch(0.92 0.004 286.32);
+  --button-bg: oklch(0.93 0.004 286.32);
   --ring: oklch(0.551 0.027 264.364);
 }
 
