@@ -114,8 +114,9 @@ export const projects: Project[] = [
 export const experience: Experience[] = [
   {
     role: "Full Stack Developer",
-    company: "ASSA Compania de Seguros",
-    period: "May 2026-Present",
+    company: "ASSA Compañía de Seguros",
+    companyUrl: "https://www.assanet.com/",
+    period: "May 2026 to Present",
     location: "Panama",
     highlights: [
       "Current full-stack role in insurance technology, building production software across frontend and backend systems.",
