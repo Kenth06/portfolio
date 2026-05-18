@@ -160,11 +160,20 @@ export const experience: Experience[] = [
     role: "Software Development Intern",
     company: "RednBlue",
     companyUrl: "https://rednbluepty.com/",
-    period: "Feb 2024-Apr 2024",
-    location: "David, Chiriqui, Panama",
+    period: "Feb 2024 to Apr 2024",
+    location: "David, Chiriquí, Panama",
     highlights: [
-      "Built a customer service chatbot with RAG and function calling from scratch, my first production AI engineering work.",
-      "Worked with JavaScript, TypeScript, OpenAI, RAG, LLMs, object-oriented programming, Git, and Cloudflare.",
+      "Built a customer service chatbot with [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) and [function calling](https://platform.openai.com/docs/guides/function-calling) from scratch, my first hands-on exposure to production AI work.",
+    ],
+  },
+  {
+    role: "Customer Service Team Supervisor",
+    company: "RednBlue",
+    companyUrl: "https://rednbluepty.com/",
+    period: "Dec 2023 to Feb 2024",
+    location: "David, Chiriquí, Panama",
+    highlights: [
+      "Helped run a virtual team: task assignment, load balancing, cross-department communication, and small process improvements.",
     ],
   },
 ];
