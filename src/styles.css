@@ -307,7 +307,8 @@ p {
 .prose-page a:hover,
 .site-footer a:hover,
 .social-row a:hover {
-  color: var(--theme-accent);
+  color: var(--theme-accent-2);
+  text-decoration-thickness: 1.5px;
 }
 
 .note-section {
@@ -339,7 +340,7 @@ p {
 }
 
 .section-heading-row a:hover {
-  color: var(--theme-accent);
+  color: var(--theme-accent-2);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
