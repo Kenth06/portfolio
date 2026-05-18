@@ -1,4 +1,22 @@
+import type { ReactNode } from "react";
 import { experience } from "../content";
+
+const inlineLinkPattern = /(\[[^\]]+\]\([^)]+\))/g;
+const inlineLinkParts = /^\[([^\]]+)\]\(([^)]+)\)$/;
+
+function renderHighlight(text: string): ReactNode[] {
+  return text.split(inlineLinkPattern).map((part, index) => {
+    const match = part.match(inlineLinkParts);
+    if (!match) {
+      return part;
+    }
+    return (
+      <a key={index} href={match[2]} target="_blank" rel="noreferrer">
+        {match[1]}
+      </a>
+    );
+  });
+}
 
 export function ExperiencePage() {
   return (
@@ -29,7 +47,7 @@ export function ExperiencePage() {
             ))}
             <ul>
               {item.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
+                <li key={highlight}>{renderHighlight(highlight)}</li>
               ))}
             </ul>
           </section>
