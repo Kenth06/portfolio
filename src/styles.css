@@ -97,17 +97,19 @@ main {
 
 h1 {
   color: var(--theme-accent-2);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
+  font-size: 28px;
+  font-weight: 650;
+  line-height: 36px;
+  letter-spacing: -0.022em;
   margin-bottom: 24px;
 }
 
 h2 {
   color: var(--theme-accent-2);
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 28px;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 26px;
+  letter-spacing: -0.014em;
   margin-bottom: 16px;
 }
 
