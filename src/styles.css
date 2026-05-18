@@ -282,14 +282,16 @@ p {
 
 .entry-list li {
   display: grid;
-  grid-template-columns: 144px minmax(0, 1fr);
-  column-gap: 16px;
-  margin-bottom: 8px;
+  grid-template-columns: 156px minmax(0, 1fr);
+  column-gap: 20px;
+  padding: 6px 0;
   line-height: 24px;
 }
 
 .entry-list time {
   color: var(--theme-link);
+  font-variant-numeric: tabular-nums;
+  font-size: 14px;
   white-space: nowrap;
 }
 
