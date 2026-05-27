@@ -66,7 +66,7 @@ export function CVPage({ setActive }: { setActive: (tab: Tab) => void }) {
             </button>
           </div>
 
-          <div className="overflow-y-auto px-8 pb-9 sm:px-10 sm:pb-10">
+          <div className="no-scrollbar overflow-y-auto px-8 pb-9 sm:px-10 sm:pb-10">
             <div className="space-y-12 text-neutral-500">
               {jobs.map((job) => (
                 <div
