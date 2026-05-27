@@ -107,6 +107,21 @@ export const projects: Project[] = [
     tech: ["Cloudflare Workers", "RAG", "LangChain", "OpenAI", "Vectorize"],
     cardImage: "/placeholder.jpg",
   },
+  {
+    slug: "2a2-creatives",
+    title: "2A2 Creatives",
+    date: "2026",
+    shortDate: "2026",
+    category: "Landing page",
+    summary:
+      "Marketing landing page for 2A2 Creatives, an audiovisual production studio based in Panama.",
+    details: [
+      "Built the marketing landing page for 2A2 Creatives, a Panama-based creative production studio.",
+      "Focused on a fast, content-forward experience that showcases their work and services.",
+    ],
+    tech: ["Astro", "TypeScript", "Tailwind CSS"],
+    cardImage: "/2a2-creatives-card.png",
+  },
 ];
 
 export const experience: Experience[] = [
