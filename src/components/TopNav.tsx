@@ -15,7 +15,7 @@ export function TopNav({ active, setActive }: { active: Tab; setActive: (tab: Ta
             <button
               key={tab}
               onClick={() => setActive(tab)}
-              className="relative h-12 min-w-[92px] rounded-full px-6 text-[17px] font-medium tracking-[-0.035em] text-neutral-600 transition hover:text-neutral-800"
+              className="relative h-11 min-w-[64px] rounded-full px-3.5 text-[15px] font-medium tracking-[-0.035em] text-neutral-600 transition hover:text-neutral-800 sm:h-12 sm:min-w-[88px] sm:px-6 sm:text-[17px]"
             >
               {active === tab && (
                 <motion.span
