@@ -7,3 +7,14 @@
     cursor: pointer;
   }
 }
+
+@layer utilities {
+  /* Hide scrollbars while keeping scroll behavior (wheel / touch). */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
