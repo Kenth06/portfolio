@@ -1,23 +1,25 @@
-import { Route, Routes } from "react-router-dom";
-import { SiteShell } from "./components/SiteShell";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { TopNav } from "./components/TopNav";
+import { WorkPage } from "./pages/WorkPage";
 import { AboutPage } from "./pages/AboutPage";
-import { ExperiencePage } from "./pages/ExperiencePage";
-import { HomePage } from "./pages/HomePage";
-import { NotFoundPage } from "./pages/NotFoundPage";
-import { ProjectPage } from "./pages/ProjectPage";
-import { SkillsPage } from "./pages/SkillsPage";
+import { CVPage } from "./pages/CVPage";
+import type { Tab } from "./types";
 
 export function App() {
+  const [active, setActive] = useState<Tab>("Work");
+
   return (
-    <SiteShell>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/experience" element={<ExperiencePage />} />
-        <Route path="/skills" element={<SkillsPage />} />
-        <Route path="/projects/:slug" element={<ProjectPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </SiteShell>
+    <main className="min-h-screen bg-white font-[Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Helvetica_Neue',Arial,sans-serif] text-neutral-900">
+      <section className="relative mx-auto min-h-screen max-w-[1500px] overflow-hidden bg-white">
+        <TopNav active={active} setActive={setActive} />
+
+        <AnimatePresence mode="wait">
+          {active === "Work" && <WorkPage />}
+          {active === "About" && <AboutPage setActive={setActive} />}
+          {active === "CV" && <CVPage setActive={setActive} />}
+        </AnimatePresence>
+      </section>
+    </main>
   );
 }
