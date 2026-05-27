@@ -10,9 +10,9 @@ export function WorkPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.45 }}
-      className="relative min-h-[100vh]"
+      className="relative flex min-h-[100dvh] flex-col sm:h-[100dvh]"
     >
-      <div className="flex min-h-[55vh] flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
+      <div className="flex shrink-0 flex-col items-center px-6 pt-24 pb-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,7 +31,7 @@ export function WorkPage() {
         </motion.p>
       </div>
 
-      <div className="grid auto-rows-[260px] grid-cols-1 gap-3 px-3 pb-3 sm:auto-rows-[230px] sm:grid-cols-4">
+      <div className="grid auto-rows-[260px] grid-cols-1 gap-3 px-3 pb-3 sm:min-h-0 sm:flex-1 sm:auto-rows-fr sm:grid-cols-4">
         {projects.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
