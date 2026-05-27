@@ -28,12 +28,10 @@ export type SkillGroup = {
   items: string[];
 };
 
-export const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/experience", label: "Experience" },
-  { href: "/skills", label: "Skills" },
-] as const;
+export const profile = {
+  name: "Kenneth Rios",
+  role: "Full Stack Developer & AI Engineer",
+};
 
 export const socialLinks = [
   { href: "https://github.com/Kenth06", label: "Github" },
@@ -279,33 +277,5 @@ export const skillGroups: SkillGroup[] = [
       "OpenAI Agents SDK (20k+ stars)",
       "Chatwoot (27.8k+ stars)",
     ],
-  },
-];
-
-export const homeEntries = [
-  {
-    date: "May 2026 to Now",
-    title: "Full Stack Developer at ASSA Compañía de Seguros",
-    href: "/experience",
-  },
-  {
-    date: "Feb 2026 to Apr 2026",
-    title: "AI Engineer at Zelta",
-    href: "/experience",
-  },
-  {
-    date: "Apr 2024 to Feb 2026",
-    title: "Software Developer · AI Engineering at RednBlue",
-    href: "/experience",
-  },
-  {
-    date: "Feb 2024 to Apr 2024",
-    title: "Software Development Intern at RednBlue",
-    href: "/experience",
-  },
-  {
-    date: "Dec 2023 to Feb 2024",
-    title: "Customer Service Team Supervisor at RednBlue",
-    href: "/experience",
   },
 ];
