@@ -2,10 +2,9 @@ import { projects } from "../content";
 
 const monoFont = "font-[ui-monospace,SFMono-Regular,Menlo,monospace]";
 
-/** Bento placement: index 0 is the large featured card, index 3 spans wide. */
+/** Bento placement: index 0 is the large featured card; the rest fill a 4x2 grid. */
 export function projectSpan(index: number): string {
   if (index === 0) return "sm:col-span-2 sm:row-span-2";
-  if (index === 3) return "sm:col-span-2";
   return "";
 }
 

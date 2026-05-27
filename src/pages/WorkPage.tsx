@@ -10,9 +10,10 @@ export function WorkPage() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.45 }}
-      className="relative min-h-[100vh]"
+      className="relative min-h-[100dvh]"
     >
-      <div className="flex min-h-[55vh] flex-col items-center justify-center px-6 pt-24 pb-12 text-center">
+      {/* Hero — fixed, predefined space */}
+      <div className="flex h-[40vh] min-h-[280px] flex-col items-center justify-center px-6 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -31,10 +32,21 @@ export function WorkPage() {
         </motion.p>
       </div>
 
-      <div className="grid auto-rows-[260px] grid-cols-1 gap-3 px-3 pb-3 sm:auto-rows-[230px] sm:grid-cols-4">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
-        ))}
+      {/* Projects */}
+      <div className="px-4 pb-10 sm:px-5">
+        <motion.h2
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.18, duration: 0.6, ease: "easeOut" }}
+          className="mb-4 px-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400"
+        >
+          Projects
+        </motion.h2>
+        <div className="grid auto-rows-[200px] grid-cols-1 gap-3 sm:auto-rows-[190px] sm:grid-cols-4">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.slug} project={project} index={index} />
+          ))}
+        </div>
       </div>
     </motion.div>
   );
