@@ -8,6 +8,7 @@ export type Project = {
   details: string[];
   tech: string[];
   github?: string;
+  url?: string;
   cardImage?: string;
   detailImages?: string[];
 };
@@ -120,6 +121,7 @@ export const projects: Project[] = [
       "Focused on a fast, content-forward experience that showcases their work and services.",
     ],
     tech: ["Astro", "TypeScript", "Tailwind CSS"],
+    url: "https://2a2creatives.com/",
     cardImage: "/2a2-creatives-card.png",
   },
 ];
