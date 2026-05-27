@@ -1,3 +1,3 @@
-export type Tab = "Work" | "About" | "CV";
+export type Tab = "Work" | "About" | "Skills" | "CV";
 
-export const tabs: Tab[] = ["Work", "About", "CV"];
+export const tabs: Tab[] = ["Work", "About", "Skills", "CV"];

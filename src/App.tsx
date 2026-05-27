@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { TopNav } from "./components/TopNav";
 import { WorkPage } from "./pages/WorkPage";
 import { AboutPage } from "./pages/AboutPage";
+import { SkillsPage } from "./pages/SkillsPage";
 import { CVPage } from "./pages/CVPage";
 import type { Tab } from "./types";
 
@@ -17,6 +18,7 @@ export function App() {
         <AnimatePresence mode="wait">
           {active === "Work" && <WorkPage />}
           {active === "About" && <AboutPage setActive={setActive} />}
+          {active === "Skills" && <SkillsPage setActive={setActive} />}
           {active === "CV" && <CVPage setActive={setActive} />}
         </AnimatePresence>
       </section>
