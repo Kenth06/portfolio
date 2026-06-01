@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
+/* Drive the `dark:` variant from the `.dark` class on <html> (set by the
+   bootstrap script in index.html) instead of the default prefers-color-scheme
+   media query, so the in-app toggle can override the system preference. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
+  html {
+    color-scheme: light dark;
+  }
+
+  /* Smooth the transition when toggling themes. */
+  body,
+  body * {
+    transition-property: background-color, border-color, color, fill, stroke,
+      box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
+  }
+
   button:not(:disabled),
   a,
   [role="button"] {

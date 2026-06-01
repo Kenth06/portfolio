@@ -10,12 +10,12 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
 
   const inner = (
     <>
-      <div className="relative min-h-0 flex-1 overflow-hidden rounded-[12px] bg-[#f7f7f7] ring-1 ring-black/[0.02] transition duration-500 group-hover:scale-[0.99]">
+      <div className="relative min-h-0 flex-1 overflow-hidden rounded-[12px] bg-[#f7f7f7] ring-1 ring-black/[0.02] transition duration-500 group-hover:scale-[0.99] dark:bg-[#202327] dark:ring-white/[0.05]">
         <ProjectVisual slug={project.slug} cardImage={project.cardImage} title={project.title} />
       </div>
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-3">
-        <p className="text-[14px] font-semibold tracking-[-0.02em] text-neutral-800">{project.title}</p>
-        <span className="text-[13px] font-medium tracking-[-0.02em] text-neutral-400">{project.category}</span>
+        <p className="text-[14px] font-semibold tracking-[-0.02em] text-neutral-800 dark:text-neutral-100">{project.title}</p>
+        <span className="text-[13px] font-medium tracking-[-0.02em] text-neutral-400 dark:text-neutral-400">{project.category}</span>
       </div>
     </>
   );

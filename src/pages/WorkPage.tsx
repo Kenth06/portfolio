@@ -18,7 +18,7 @@ export function WorkPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.08, duration: 0.65, ease: "easeOut" }}
-          className="text-[14px] font-semibold leading-none tracking-[-0.035em] text-neutral-700 sm:text-[15px]"
+          className="text-[14px] font-semibold leading-none tracking-[-0.035em] text-neutral-700 dark:text-neutral-200 sm:text-[15px]"
         >
           {profile.name}
         </motion.h1>
@@ -26,7 +26,7 @@ export function WorkPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.14, duration: 0.65, ease: "easeOut" }}
-          className="mt-2 text-[13px] font-medium leading-none tracking-[-0.025em] text-neutral-400 sm:text-[14px]"
+          className="mt-2 text-[13px] font-medium leading-none tracking-[-0.025em] text-neutral-400 dark:text-neutral-400 sm:text-[14px]"
         >
           {profile.role}
         </motion.p>
@@ -38,7 +38,7 @@ export function WorkPage() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.18, duration: 0.6, ease: "easeOut" }}
-          className="mb-4 px-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400"
+          className="mb-4 px-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400 dark:text-neutral-400"
         >
           Projects
         </motion.h2>
