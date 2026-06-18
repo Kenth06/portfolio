@@ -30,7 +30,7 @@ function renderRichText(text: string): ReactNode[] {
 }
 
 const Eyebrow = ({ children }: { children: ReactNode }) => (
-  <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-ink-3">{children}</p>
+  <p className="font-geist text-[12px] uppercase tracking-[0.2em] text-ink-3">{children}</p>
 );
 
 export function AboutPage() {
@@ -72,7 +72,7 @@ export function AboutPage() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-md border border-line bg-surface px-2.5 py-1 font-mono text-[11px] text-ink-2"
+                    className="rounded-md border border-line bg-surface px-2.5 py-1 font-geist text-[11px] text-ink-2"
                   >
                     {item}
                   </span>
@@ -92,7 +92,7 @@ export function AboutPage() {
               key={`${job.company}-${job.period}`}
               className="grid gap-x-10 gap-y-3 sm:grid-cols-[170px_1fr]"
             >
-              <p className="font-mono text-[13px] leading-relaxed text-ink-3">{job.period}</p>
+              <p className="font-geist text-[13px] leading-relaxed text-ink-3">{job.period}</p>
               <div>
                 <h3 className="font-serif text-[24px] leading-tight text-ink">{job.role}</h3>
                 {job.companyUrl ? (

@@ -17,10 +17,7 @@ export function ProjectsPage() {
         transition={{ delay: 0.05, duration: 0.6, ease: "easeOut" }}
         className="border-b border-line pb-10"
       >
-        <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-ink-3">
-          {projects.length} projects
-        </p>
-        <h1 className="pt-3 font-serif text-[56px] leading-none tracking-[-0.01em] text-ink sm:text-[72px]">
+        <h1 className="font-serif text-[56px] leading-none tracking-[-0.01em] text-ink sm:text-[72px]">
           Projects
         </h1>
       </motion.header>

@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import { profile, projects, socialLinks } from "../content";
 import { ProjectCard } from "../components/ProjectCard";
 import type { Tab } from "../types";
 
 const githubUrl = socialLinks.find((l) => l.label === "Github")?.href ?? "#";
+const emailUrl = socialLinks.find((l) => l.label === "Email")?.href ?? "#";
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 12 },
@@ -25,27 +26,21 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
     >
       {/* Hero */}
       <section className="border-b border-line pb-20">
-        <motion.p
-          {...fade(0.05)}
-          className="font-mono text-[12px] uppercase tracking-[0.2em] text-ink-3"
-        >
-          Panamá · Available for work
-        </motion.p>
         <motion.h1
-          {...fade(0.1)}
-          className="pt-6 font-serif text-[64px] leading-[0.95] tracking-[-0.01em] text-ink sm:text-[88px]"
+          {...fade(0.06)}
+          className="font-serif text-[64px] leading-[0.95] tracking-[-0.01em] text-ink sm:text-[88px]"
         >
           {profile.name}
         </motion.h1>
         <motion.p
-          {...fade(0.16)}
-          className="pt-3 font-serif text-[24px] italic leading-tight text-ink-2 sm:text-[30px]"
+          {...fade(0.12)}
+          className="pt-3 text-[22px] leading-tight text-ink-2 sm:text-[26px]"
         >
           {profile.role}
         </motion.p>
         <motion.p
-          {...fade(0.22)}
-          className="max-w-[40ch] pt-7 text-[17px] leading-[1.6] text-ink-2 sm:text-[18px]"
+          {...fade(0.18)}
+          className="max-w-[42ch] pt-7 text-[17px] leading-[1.6] text-ink-2 sm:text-[18px]"
         >
           I build AI systems and backends that survive contact with production — agents,
           RAG pipelines, automation, and APIs, most of it running on the edge.
@@ -73,16 +68,14 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
       <section className="pt-16">
         <div className="flex items-end justify-between">
           <div>
-            <p className="font-mono text-[12px] uppercase tracking-[0.2em] text-ink-3">
-              Selected Work
-            </p>
-            <h2 className="pt-2 font-serif text-[36px] leading-none text-ink">Things I've shipped</h2>
+            <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-ink">Selected Work</h2>
+            <p className="pt-1.5 text-[15px] text-ink-2">A collection of projects I've built.</p>
           </div>
           <button
             onClick={() => setActive("Projects")}
             className="flex items-center gap-1.5 text-[14px] font-medium text-ink-2 transition hover:text-accent"
           >
-            All projects <ArrowRight size={15} strokeWidth={2} />
+            View all projects <ArrowRight size={15} strokeWidth={2} />
           </button>
         </div>
 
@@ -93,21 +86,51 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="mt-24 flex flex-col gap-4 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-[13px] text-ink-3">© {new Date().getFullYear()} {profile.name}</p>
-        <div className="flex gap-6">
-          {socialLinks.map((link) => (
+      {/* Footer CTA */}
+      <footer className="mt-24 border-t border-line">
+        <div className="flex flex-col items-center gap-6 py-28 text-center">
+          <h2 className="font-serif text-[44px] leading-[1.05] tracking-[-0.01em] text-ink sm:text-[60px]">
+            Ready to build something?
+          </h2>
+          <p className="max-w-[44ch] text-[16px] leading-[1.6] text-ink-2">
+            Whether you have a project in mind or just want to chat, my inbox is always open.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
-              key={link.label}
-              href={link.href}
+              href={emailUrl}
+              className="flex items-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-[14px] font-medium text-bg shadow-[0_2px_8px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.18)] transition hover:opacity-90 active:scale-[0.98]"
+            >
+              Get in touch <ArrowRight size={16} strokeWidth={2} />
+            </a>
+            <a
+              href={githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-[13px] font-medium text-ink-2 transition hover:text-accent"
+              className="flex items-center gap-2 rounded-xl border border-line-2 bg-surface px-6 py-3.5 text-[14px] font-medium text-ink shadow-[0_2px_8px_rgba(0,0,0,0.12)] transition hover:bg-surface-2 active:scale-[0.98]"
             >
-              {link.label}
+              <Github size={16} strokeWidth={1.8} /> GitHub
             </a>
-          ))}
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-3 border-t border-line py-7 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          <p className="font-geist text-[13px] text-ink-3">
+            © {new Date().getFullYear()} {profile.name}
+          </p>
+          <div className="flex justify-center gap-6 sm:justify-end">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[13px] font-medium text-ink-2 transition hover:text-accent"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
     </motion.div>

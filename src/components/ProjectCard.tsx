@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "../content";
-import { seededGradient } from "../lib/gradient";
+import { ProjectVisual } from "./projectVisuals";
 
 export function ProjectCard({
   project,
@@ -13,19 +13,18 @@ export function ProjectCard({
   featured?: boolean;
 }) {
   const href = project.url ?? project.github;
-  const gradient = seededGradient(project.slug);
   const transition = { delay: 0.08 + index * 0.05, duration: 0.55, ease: "easeOut" } as const;
 
   const inner = (
     <>
-      {/* Gradient cover — the project's visual identity, generated from its slug. */}
+      {/* Cover */}
       <div
-        className={`relative w-full overflow-hidden rounded-2xl border border-line ${
+        className={`relative w-full overflow-hidden rounded-2xl border border-line bg-surface ${
           featured ? "aspect-[16/9]" : "aspect-[16/10]"
         }`}
-        style={{ background: gradient.mesh }}
       >
-        <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/[0.08]" />
+        <ProjectVisual slug={project.slug} cardImage={project.cardImage} title={project.title} />
+        <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/[0.06]" />
         {href && (
           <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/25 text-white opacity-0 backdrop-blur-md transition duration-300 group-hover:opacity-100">
             <ArrowUpRight size={16} strokeWidth={2} />
@@ -42,7 +41,7 @@ export function ProjectCard({
         >
           {project.title}
         </h3>
-        <span className="font-mono text-[12px] uppercase tracking-[0.12em] text-ink-3">
+        <span className="font-geist text-[12px] uppercase tracking-[0.12em] text-ink-3">
           {project.category}
         </span>
       </div>
@@ -51,7 +50,7 @@ export function ProjectCard({
         {project.tech.slice(0, featured ? 5 : 3).map((item) => (
           <span
             key={item}
-            className="rounded-md border border-line bg-surface px-2 py-1 font-mono text-[11px] text-ink-2"
+            className="rounded-md border border-line bg-surface px-2 py-1 font-geist text-[11px] text-ink-2"
           >
             {item}
           </span>
