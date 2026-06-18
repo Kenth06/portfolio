@@ -5,9 +5,61 @@
    media query, so the in-app toggle can override the system preference. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Design tokens. Light is the default; `.dark` swaps the values. Components
+   reference these via var(), so a single class works across both themes.
+   Palette is intentionally neutral (near-white / near-black) with one
+   restrained cool accent used only for links, focus, and active states. */
+:root {
+  --bg: #fbfbfa;
+  --surface: #f4f4f3;
+  --surface-2: #efefed;
+  --text: #18181b;
+  --text-2: #52525b;
+  --text-3: #a1a1aa;
+  --border: rgba(24, 24, 27, 0.1);
+  --border-2: rgba(24, 24, 27, 0.16);
+  --accent: #4f63a8;
+  --accent-soft: rgba(79, 99, 168, 0.12);
+}
+
+.dark {
+  --bg: #0e0e10;
+  --surface: #161719;
+  --surface-2: #1d1e21;
+  --text: #f4f4f5;
+  --text-2: #a1a1aa;
+  --text-3: #71717a;
+  --border: rgba(244, 244, 245, 0.1);
+  --border-2: rgba(244, 244, 245, 0.16);
+  --accent: #9bb0db;
+  --accent-soft: rgba(155, 176, 219, 0.14);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--text);
+  --color-ink-2: var(--text-2);
+  --color-ink-3: var(--text-3);
+  --color-line: var(--border);
+  --color-line-2: var(--border-2);
+  --color-accent: var(--accent);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
 @layer base {
   html {
     color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
   }
 
   /* Smooth the transition when toggling themes. */

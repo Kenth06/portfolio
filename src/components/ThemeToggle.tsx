@@ -13,7 +13,7 @@ export function ThemeToggle() {
       transition={{ duration: 0.55, ease: "easeOut" }}
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="absolute right-7 top-7 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-[#ececec]/95 text-neutral-600 shadow-[0_10px_30px_rgba(15,23,42,0.06)] ring-1 ring-black/[0.04] backdrop-blur-2xl transition hover:text-neutral-900 active:scale-95 dark:bg-white/[0.06] dark:text-neutral-300 dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)] dark:ring-white/[0.08] dark:hover:text-white sm:flex"
+      className="absolute right-6 top-6 z-50 hidden h-11 w-11 items-center justify-center rounded-full border border-line bg-surface/80 text-ink-2 backdrop-blur-2xl transition hover:text-ink active:scale-95 sm:right-10 sm:top-7 sm:flex"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
