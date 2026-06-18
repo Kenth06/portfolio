@@ -20,6 +20,8 @@
   --border-2: rgba(24, 24, 27, 0.16);
   --accent: #4f63a8;
   --accent-soft: rgba(79, 99, 168, 0.12);
+  /* Soft gray spotlight behind the CTA. */
+  --glow-cta: rgba(120, 120, 120, 0.14);
 }
 
 .dark {
@@ -33,6 +35,8 @@
   --border-2: rgba(244, 244, 245, 0.16);
   --accent: #9bb0db;
   --accent-soft: rgba(155, 176, 219, 0.14);
+  /* Brighter white glow reads well over the near-black background. */
+  --glow-cta: rgba(255, 255, 255, 0.13);
 }
 
 @theme inline {
