@@ -91,7 +91,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
       <footer className="mt-24 border-t border-line">
         <div className="flex flex-col items-center gap-6 py-28 text-center">
           <h2 className="font-serif text-[44px] leading-[1.05] tracking-[-0.01em] text-ink sm:text-[60px]">
-            Ready to build something?
+            Want to work together?
           </h2>
           <p className="max-w-[44ch] text-[16px] leading-[1.6] text-ink-2">
             Whether you have a project in mind or just want to chat, my inbox is always open.
