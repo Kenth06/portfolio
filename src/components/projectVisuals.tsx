@@ -1,12 +1,4 @@
-import { projects } from "../content";
-
 const monoFont = "font-[ui-monospace,SFMono-Regular,Menlo,monospace]";
-
-/** Bento placement: index 0 is the large featured card; the rest fill a 4x2 grid. */
-export function projectSpan(index: number): string {
-  if (index === 0) return "sm:col-span-2 sm:row-span-2";
-  return "";
-}
 
 function ScraperMockup() {
   const rows = [
@@ -15,7 +7,7 @@ function ScraperMockup() {
     { id: "#K042-1180", status: "Pending", dot: "bg-neutral-300 dark:bg-neutral-600" },
   ];
   return (
-    <div className="flex h-full items-center justify-center bg-[#f7f7f7] p-8 dark:bg-[#202327]">
+    <div className="flex h-full items-center justify-center bg-surface p-8">
       <div className="w-full max-w-[300px] rounded-xl bg-white p-4 shadow-[0_10px_34px_rgba(15,23,42,0.06)] ring-1 ring-black/[0.02] dark:bg-[#16181b] dark:shadow-[0_10px_34px_rgba(0,0,0,0.4)] dark:ring-white/[0.06]">
         <div className="flex items-center gap-1.5 pb-3.5">
           <span className="h-2 w-2 rounded-full bg-neutral-200 dark:bg-neutral-700" />
@@ -40,7 +32,7 @@ function ScraperMockup() {
 
 function RagMockup() {
   return (
-    <div className="flex h-full items-center justify-center bg-[#f7f7f7] p-8 dark:bg-[#202327]">
+    <div className="flex h-full items-center justify-center bg-surface p-8">
       <div className="w-full max-w-[300px] space-y-2.5">
         <div className="ml-auto w-fit max-w-[80%] rounded-2xl rounded-br-md bg-neutral-900 px-3.5 py-2 text-[11px] leading-snug text-white dark:bg-white dark:text-neutral-900">
           How do I track my order?
@@ -63,18 +55,5 @@ export function ProjectVisual({ slug, cardImage, title }: { slug: string; cardIm
   }
   if (slug === "order-tracking-scraper") return <ScraperMockup />;
   if (slug === "rag-cs-assistant") return <RagMockup />;
-  return <div className="h-full w-full bg-[#f7f7f7] dark:bg-[#202327]" />;
-}
-
-/** Blurred project grid used as a backdrop behind the About / CV modals. */
-export function ProjectBackdrop() {
-  return (
-    <div className="absolute inset-x-0 bottom-0 grid h-[46%] grid-cols-4 grid-rows-2 gap-3 px-3 pb-3 opacity-70 blur-[6px]">
-      {projects.map((project, index) => (
-        <div key={project.slug} className={`overflow-hidden rounded-[12px] bg-[#f7f7f7] dark:bg-[#202327] ${projectSpan(index)}`}>
-          <ProjectVisual slug={project.slug} cardImage={project.cardImage} title={project.title} />
-        </div>
-      ))}
-    </div>
-  );
+  return <div className="h-full w-full bg-surface" />;
 }

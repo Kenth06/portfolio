@@ -2,18 +2,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../useTheme";
 
+/** Inline theme toggle, rendered inside the footer. */
 export function ThemeToggle() {
   const { theme, toggle } = useTheme();
   const isDark = theme === "dark";
 
   return (
-    <motion.button
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: "easeOut" }}
+    <button
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="absolute right-7 top-7 z-50 hidden h-12 w-12 items-center justify-center rounded-full bg-[#ececec]/95 text-neutral-600 shadow-[0_10px_30px_rgba(15,23,42,0.06)] ring-1 ring-black/[0.04] backdrop-blur-2xl transition hover:text-neutral-900 active:scale-95 dark:bg-white/[0.06] dark:text-neutral-300 dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)] dark:ring-white/[0.08] dark:hover:text-white sm:flex"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink-2 transition hover:text-ink active:scale-95"
     >
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
@@ -24,9 +22,9 @@ export function ThemeToggle() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="flex items-center justify-center"
         >
-          {isDark ? <Sun size={20} strokeWidth={1.8} /> : <Moon size={20} strokeWidth={1.8} />}
+          {isDark ? <Sun size={17} strokeWidth={1.8} /> : <Moon size={17} strokeWidth={1.8} />}
         </motion.span>
       </AnimatePresence>
-    </motion.button>
+    </button>
   );
 }
