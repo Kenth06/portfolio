@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
 import { profile, projects, socialLinks } from "../content";
 import { ProjectCard } from "../components/ProjectCard";
+import { Footer } from "../components/Footer";
 import type { Tab } from "../types";
 
 const githubUrl = socialLinks.find((l) => l.label === "Github")?.href ?? "#";
@@ -42,7 +43,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
           {...fade(0.18)}
           className="max-w-[42ch] pt-7 text-[17px] leading-[1.6] text-ink-2 sm:text-[18px]"
         >
-          I build AI systems and backends that survive contact with production — agents,
+          I build AI systems and backends that survive contact with production, agents,
           RAG pipelines, automation, and APIs, most of it running on the edge.
         </motion.p>
 
@@ -113,25 +114,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col gap-3 border-t border-line py-7 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-          <p className="font-geist text-[13px] text-ink-3">
-            © {new Date().getFullYear()} {profile.name}
-          </p>
-          <div className="flex justify-center gap-6 sm:justify-end">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="text-[13px] font-medium text-ink-2 transition hover:text-accent"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
+        <Footer />
       </footer>
     </motion.div>
   );

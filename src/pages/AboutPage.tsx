@@ -1,6 +1,7 @@
 import { type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { experience, skillGroups, socialLinks } from "../content";
+import { Footer } from "../components/Footer";
 
 /** Parse inline `[label](url)` markdown into clickable links. */
 function renderRichText(text: string): ReactNode[] {
@@ -49,7 +50,7 @@ export function AboutPage() {
         </h1>
         <p className="max-w-[58ch] pt-8 text-[18px] leading-[1.6] text-ink-2">
           I'm a full-stack developer and AI engineer based in Panamá. I build AI systems and
-          backends that have to survive contact with production — and I care most about
+          backends that have to survive contact with production, and I care most about
           verification, auditability, and reliability.
         </p>
         <p className="max-w-[58ch] pt-4 text-[18px] leading-[1.6] text-ink-2">
@@ -139,6 +140,8 @@ export function AboutPage() {
           ))}
         </div>
       </section>
+
+      <Footer />
     </motion.div>
   );
 }

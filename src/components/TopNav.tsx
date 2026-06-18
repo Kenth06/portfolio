@@ -18,8 +18,8 @@ export function TopNav({ active, setActive }: { active: Tab; setActive: (tab: Ta
         {profile.name}
       </button>
 
-      {/* Centered nav pill */}
-      <nav className="absolute left-1/2 -translate-x-1/2">
+      {/* Nav pill, aligned to the right, matching the design */}
+      <nav>
         <div className="rounded-full border border-line bg-surface/80 p-1.5 backdrop-blur-2xl">
           <div className="relative flex items-center gap-0.5">
             {tabs.map((tab) => (

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { projects } from "../content";
 import { ProjectCard } from "../components/ProjectCard";
+import { Footer } from "../components/Footer";
 
 export function ProjectsPage() {
   return (
@@ -26,6 +27,10 @@ export function ProjectsPage() {
         {projects.map((project, index) => (
           <ProjectCard key={project.slug} project={project} index={index} />
         ))}
+      </div>
+
+      <div className="mt-24">
+        <Footer />
       </div>
     </motion.div>
   );
