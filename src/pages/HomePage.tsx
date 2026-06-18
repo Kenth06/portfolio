@@ -89,14 +89,23 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
 
       {/* Footer CTA */}
       <footer className="mt-24 border-t border-line">
-        <div className="flex flex-col items-center gap-6 py-28 text-center">
-          <h2 className="font-serif text-[44px] leading-[1.05] tracking-[-0.01em] text-ink sm:text-[60px]">
+        <div className="relative flex flex-col items-center gap-6 overflow-hidden py-28 text-center">
+          {/* Soft gray/white spotlight behind the CTA */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(65% 80% at 50% 40%, var(--glow-cta) 0%, transparent 70%)",
+            }}
+          />
+          <h2 className="relative z-10 font-serif text-[44px] leading-[1.05] tracking-[-0.01em] text-ink sm:text-[60px]">
             Want to work together?
           </h2>
-          <p className="max-w-[44ch] text-[16px] leading-[1.6] text-ink-2">
+          <p className="relative z-10 max-w-[44ch] text-[16px] leading-[1.6] text-ink-2">
             Whether you have a project in mind or just want to chat, my inbox is always open.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+          <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href={emailUrl}
               className="flex items-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-[14px] font-medium text-bg shadow-[0_2px_8px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.18)] transition hover:opacity-90 active:scale-[0.98]"
