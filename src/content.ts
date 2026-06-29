@@ -42,6 +42,25 @@ export const socialLinks = [
 
 export const projects: Project[] = [
   {
+    slug: "nolan",
+    title: "Nolan",
+    date: "June 2026",
+    shortDate: "Jun 2026",
+    category: "AI / Semantic Search",
+    summary:
+      "Search every Christopher Nolan film by meaning, multimodal embeddings over the whole filmography.",
+    details: [
+      "Semantic image search across every Christopher Nolan film, type a scene, person, object, or color and it finds the matching stills.",
+      "Stills are embedded once with Google Gemini (gemini-embedding-2) into a 1536-d multimodal space, so text queries and images share one vector space.",
+      "At query time the search text is embedded into the same space, Cloudflare Vectorize returns the nearest frames by cosine similarity, and metadata is joined from D1.",
+      "Full-stack React (React Router v7 SSR) on Cloudflare Workers with a Hono JSON API, private R2 image storage with opaque ids, and per-IP rate limiting.",
+    ],
+    tech: ["Cloudflare Workers", "Vectorize", "Gemini", "Hono", "React Router", "D1"],
+    github: "https://github.com/Kenth06/Nolan",
+    url: "https://nolan.kennethfi646-410.workers.dev",
+    cardImage: "/nolan-card.png",
+  },
+  {
     slug: "linear-mcp",
     title: "Linear MCP",
     date: "September 2025",
