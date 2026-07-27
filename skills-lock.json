@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "better-typography": {
+      "source": "jakubkrehel/skills",
+      "sourceType": "github",
+      "skillPath": "skills/better-typography/SKILL.md",
+      "computedHash": "bbe024b4a78a56cd08b6d2e90d53bf268b559262c20665a440931645ed1861d4"
+    }
+  }
+}

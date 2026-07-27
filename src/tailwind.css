@@ -50,20 +50,158 @@
   --color-line-2: var(--border-2);
   --color-accent: var(--accent);
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system,
+  /* Two faces, paired for contrast: Instrument Serif carries the display
+     voice, IBM Plex Sans everything else. Plex is an engineered grotesque with
+     visible personality at small sizes, which suits the subject matter. Labels
+     and eyebrows separate themselves with size, tracking and color instead of
+     a third face. */
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-  /* Geist, the geometric sans used for labels, eyebrows, and tech tags. */
-  --font-geist: "Geist", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Measure cap for any block of running text: `max-w-measure`.
+   Expressed in em, not ch, on purpose. `ch` is the width of the digit zero,
+   which in a text face runs much wider than an average prose character: in IBM
+   Plex Sans the zero is 0.60em against a 0.46em prose average, so a `66ch` cap
+   silently renders ~86 characters. Measured against this font, 32em lands at
+   57-70 characters per line across every step of the scale, because em
+   resolves against the element's own font-size. Re-measure if the sans
+   changes. */
+@theme {
+  --container-measure: 32em;
+}
+
+/* Type scale. Steps are named by role, not by measurement, so the usage rule
+   travels with the name and a step can be retuned without renaming it.
+   Line-height and letter-spacing are baked into each step: picking a role is
+   one decision instead of three, and components stop carrying arbitrary
+   `text-[17px] leading-[1.6]` pairs. Headings ride tight (1.0-1.25) with
+   negative tracking, body copy sits at 1.45-1.6, uppercase labels get
+   positive tracking. Nothing below 12px. */
+@theme {
+  /* Display: serif page titles and the closing CTA. */
+  --text-display-xl: 5.5rem; /* 88px */
+  --text-display-xl--line-height: 0.93;
+  --text-display-xl--letter-spacing: -0.03em;
+  --text-display-lg: 4.5rem; /* 72px */
+  --text-display-lg--line-height: 0.95;
+  --text-display-lg--letter-spacing: -0.028em;
+  --text-display-md: 4rem; /* 64px */
+  --text-display-md--line-height: 0.98;
+  --text-display-md--letter-spacing: -0.025em;
+  --text-display: 3.5rem; /* 56px */
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.022em;
+  --text-display-sm: 2.75rem; /* 44px */
+  --text-display-sm--line-height: 1.05;
+  --text-display-sm--letter-spacing: -0.02em;
+  --text-title: 2.25rem; /* 36px */
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.018em;
+
+  /* Leads: the standfirst under a display heading. */
+  --text-lead-lg: 1.625rem; /* 26px */
+  --text-lead-lg--line-height: 1.25;
+  --text-lead-lg--letter-spacing: -0.012em;
+  --text-lead: 1.375rem; /* 22px */
+  --text-lead--line-height: 1.3;
+  --text-lead--letter-spacing: -0.01em;
+
+  /* Section and card headings. */
+  --text-heading: 1.5rem; /* 24px */
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: -0.015em;
+  --text-subhead: 1.25rem; /* 20px */
+  --text-subhead--line-height: 1.25;
+  --text-subhead--letter-spacing: -0.012em;
+  --text-wordmark: 1.125rem; /* 18px */
+  --text-wordmark--line-height: 1.2;
+  --text-wordmark--letter-spacing: -0.02em;
+
+  /* Body copy and interface text. No tracking: reading sizes need neither. */
+  --text-copy-lg: 1.125rem; /* 18px */
+  --text-copy-lg--line-height: 1.6;
+  --text-copy: 1.0625rem; /* 17px */
+  --text-copy--line-height: 1.6;
+  --text-copy-sm: 0.9375rem; /* 15px */
+  --text-copy-sm--line-height: 1.55;
+  --text-ui: 0.875rem; /* 14px */
+  --text-ui--line-height: 1.45;
+  --text-meta: 0.8125rem; /* 13px */
+  --text-meta--line-height: 1.5;
+
+  /* Smallest steps. `eyebrow` is the uppercase variant and carries the
+     positive tracking uppercase needs; `label` stays natural case. */
+  --text-eyebrow: 0.75rem; /* 12px */
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.16em;
+  --text-eyebrow--font-weight: 500;
+  --text-label: 0.75rem; /* 12px */
+  --text-label--line-height: 1.4;
 }
 
 @layer base {
   html {
     color-scheme: light dark;
+    /* macOS renders text heavier than intended; smooth once at the root so
+       every descendant inherits it. */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Neither Instrument face ships an `opsz` axis today, so this is inert;
+       it stays so a face that does gets the right optical size for free
+       rather than a pinned one. */
+    font-optical-sizing: auto;
+    /* Keep Safari from inflating text in landscape without capping zoom. */
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     background-color: var(--bg);
+    color: var(--text);
+  }
+
+  /* Headings wrap evenly instead of dropping one orphaned word onto line two;
+     paragraphs avoid a lone short word on the last line. Both are cheap here
+     because nothing on this site is long-form. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Long tech names, URLs and compound titles break instead of escaping their
+     column. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    overflow-wrap: break-word;
+  }
+
+  /* Underlines take position and thickness from the font's own metrics rather
+     than wherever the browser decides, and lift over descenders. Color is the
+     only part that animates reliably, which is all these links animate. */
+  a {
+    text-underline-position: from-font;
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Selection carries the accent without hurting legibility, and text stays
+     selectable everywhere. */
+  ::selection {
+    background-color: var(--accent-soft);
     color: var(--text);
   }
 

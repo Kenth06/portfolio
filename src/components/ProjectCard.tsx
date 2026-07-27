@@ -34,23 +34,17 @@ export function ProjectCard({
 
       {/* Caption */}
       <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 pt-3.5">
-        <h3
-          className={`font-serif tracking-[-0.01em] text-ink ${
-            featured ? "text-[26px] leading-none" : "text-[20px] leading-none"
-          }`}
-        >
+        <h3 className={`font-serif text-ink ${featured ? "text-heading" : "text-subhead"}`}>
           {project.title}
         </h3>
-        <span className="font-geist text-[12px] uppercase tracking-[0.12em] text-ink-3">
-          {project.category}
-        </span>
+        <span className="text-eyebrow uppercase text-ink-3">{project.category}</span>
       </div>
-      <p className="max-w-[52ch] pt-2 text-[14px] leading-[1.5] text-ink-2">{project.summary}</p>
+      <p className="max-w-measure pt-2 text-ui text-ink-2">{project.summary}</p>
       <div className="flex flex-wrap gap-1.5 pt-3">
         {project.tech.slice(0, featured ? 5 : 3).map((item) => (
           <span
             key={item}
-            className="rounded-md border border-line bg-surface px-2 py-1 font-geist text-[11px] text-ink-2"
+            className="whitespace-nowrap rounded-md border border-line bg-surface px-2 py-1 text-label text-ink-2"
           >
             {item}
           </span>

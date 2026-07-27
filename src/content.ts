@@ -153,7 +153,7 @@ export const experience: Experience[] = [
     period: "May 2026 to Present",
     location: "Panama",
     highlights: [
-      "Helping bring AI capabilities into the company's existing platforms: agents, small tools, microservices, and [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) / graph-RAG pipelines used in day-to-day workflows.",
+      "Helping bring AI capabilities into the company’s existing platforms: agents, small tools, microservices, and [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) / graph-RAG pipelines used in day-to-day workflows.",
       "Working across TypeScript, React, .NET / C# ASP.NET, and Python, on Azure and Azure DevOps under agile delivery.",
       "Trying to extend what is already in place carefully, with an eye on security, auditability, and reliability.",
     ],
@@ -168,10 +168,10 @@ export const experience: Experience[] = [
       "Worked on an autonomous agent platform with long-term memory, cross-session fact extraction, and task scheduling.",
       "Built self-correcting pipelines that take natural language and generate, compile, test, and deploy full-stack apps, running several agents in parallel with isolated workspaces.",
       "Built custom [Claude Code](https://www.anthropic.com/claude-code) and [Codex](https://openai.com/index/introducing-codex/) skills used internally for repetitive engineering processes and for code design and verification, plus a small governance setup to keep projects consistent.",
-      "Helped shape internal guidelines for how the team's agents behave: verification habits, quality gates in CI, and a small library of reusable skills.",
+      "Helped shape internal guidelines for how the team’s agents behave: verification habits, quality gates in CI, and a small library of reusable skills.",
       "Set up evaluation pipelines with [GEPA](https://github.com/gepa-ai/gepa) and [PromptFoo](https://www.promptfoo.dev/) to keep an eye on agent quality and iterate on prompts based on real behavior.",
-      "At [Nomyt](https://nomyt.co) (recruitment SaaS for Latin America), I built all of the platform's AI features: candidate recommendations based on AI comparisons between CVs and job openings, AI-assisted job opening creation, [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) to extract information from user CVs, and embeddings to relate CV tags and experience to platform tags.",
-      "Contributed features and bug fixes to [Chatwoot](https://www.chatwoot.com) (open-source omnichannel platform, 27.8k+ stars), including [MCP](https://modelcontextprotocol.io/) support for Captain AI, the platform's built-in AI agent.",
+      "At [Nomyt](https://nomyt.co) (recruitment SaaS for Latin America), I built all of the platform’s AI features: candidate recommendations based on AI comparisons between CVs and job openings, AI-assisted job opening creation, [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) to extract information from user CVs, and embeddings to relate CV tags and experience to platform tags.",
+      "Contributed features and bug fixes to [Chatwoot](https://www.chatwoot.com) (open-source omnichannel platform, 27.8k+ stars), including [MCP](https://modelcontextprotocol.io/) support for Captain AI, the platform’s built-in AI agent.",
     ],
   },
   {
