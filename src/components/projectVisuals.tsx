@@ -16,7 +16,10 @@ function ScraperMockup() {
         </div>
         <div className="space-y-2.5">
           {rows.map((row) => (
-            <div key={row.id} className={`flex items-center justify-between ${monoFont} text-[11px] text-neutral-500 dark:text-neutral-400`}>
+            <div
+              key={row.id}
+              className={`flex items-center justify-between ${monoFont} text-[11px] tabular-nums slashed-zero text-neutral-500 dark:text-neutral-400`}
+            >
               <span>{row.id}</span>
               <span className="flex items-center gap-1.5">
                 <span className={`h-1.5 w-1.5 rounded-full ${row.dot}`} />

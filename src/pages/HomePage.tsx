@@ -29,19 +29,16 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
       <section className="border-b border-line pb-20">
         <motion.h1
           {...fade(0.06)}
-          className="font-serif text-[64px] leading-[0.95] tracking-[-0.01em] text-ink sm:text-[88px]"
+          className="font-serif text-display-md text-ink sm:text-display-xl"
         >
           {profile.name}
         </motion.h1>
-        <motion.p
-          {...fade(0.12)}
-          className="pt-3 text-[22px] leading-tight text-ink-2 sm:text-[26px]"
-        >
+        <motion.p {...fade(0.12)} className="pt-3 text-lead text-ink-2 sm:text-lead-lg">
           {profile.role}
         </motion.p>
         <motion.p
           {...fade(0.18)}
-          className="max-w-[42ch] pt-7 text-[17px] leading-[1.6] text-ink-2 sm:text-[18px]"
+          className="max-w-measure pt-7 text-copy text-ink-2 sm:text-copy-lg"
         >
           I build AI systems and backends that survive contact with production, agents,
           RAG pipelines, automation, and APIs, most of it running on the edge.
@@ -50,7 +47,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
         <motion.div {...fade(0.28)} className="flex flex-wrap items-center gap-3 pt-9">
           <button
             onClick={() => setActive("Projects")}
-            className="flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-[14px] font-medium text-bg transition hover:opacity-90 active:scale-[0.98]"
+            className="flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-ui font-medium text-bg transition hover:opacity-90 active:scale-[0.98]"
           >
             View Projects <ArrowRight size={16} strokeWidth={2} />
           </button>
@@ -58,7 +55,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
             href={githubUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 rounded-xl border border-line-2 px-5 py-3 text-[14px] font-medium text-ink transition hover:bg-surface"
+            className="flex items-center gap-2 rounded-xl border border-line-2 px-5 py-3 text-ui font-medium text-ink transition hover:bg-surface"
           >
             GitHub <ArrowUpRight size={16} strokeWidth={2} />
           </a>
@@ -69,12 +66,14 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
       <section className="pt-16">
         <div className="flex items-end justify-between">
           <div>
-            <h2 className="text-[20px] font-semibold tracking-[-0.01em] text-ink">Selected Work</h2>
-            <p className="pt-1.5 text-[15px] text-ink-2">A collection of projects I've built.</p>
+            <h2 className="text-subhead font-semibold text-ink">Selected Work</h2>
+            <p className="pt-1.5 text-copy-sm text-ink-2">
+              A collection of projects I&rsquo;ve built.
+            </p>
           </div>
           <button
             onClick={() => setActive("Projects")}
-            className="flex items-center gap-1.5 text-[14px] font-medium text-ink-2 transition hover:text-accent"
+            className="flex shrink-0 items-center gap-1.5 whitespace-nowrap text-ui font-medium text-ink-2 transition hover:text-accent"
           >
             View all projects <ArrowRight size={15} strokeWidth={2} />
           </button>
@@ -99,16 +98,17 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
                 "radial-gradient(65% 80% at 50% 40%, var(--glow-cta) 0%, transparent 70%)",
             }}
           />
-          <h2 className="relative z-10 font-serif text-[44px] leading-[1.05] tracking-[-0.01em] text-ink sm:text-[60px]">
+          <h2 className="relative z-10 font-serif text-display-sm text-ink sm:text-display">
             Want to work together?
           </h2>
-          <p className="relative z-10 max-w-[44ch] text-[16px] leading-[1.6] text-ink-2">
+          {/* Centered and only two lines long, so balance beats the global `pretty`. */}
+          <p className="relative z-10 max-w-measure text-balance text-copy text-ink-2">
             Whether you have a project in mind or just want to chat, my inbox is always open.
           </p>
           <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href={emailUrl}
-              className="flex items-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-[14px] font-medium text-bg shadow-[0_2px_8px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.18)] transition hover:opacity-90 active:scale-[0.98]"
+              className="flex items-center gap-2 rounded-xl bg-ink px-6 py-3.5 text-ui font-medium text-bg shadow-[0_2px_8px_rgba(0,0,0,0.28),inset_0_1px_0_rgba(255,255,255,0.18)] transition hover:opacity-90 active:scale-[0.98]"
             >
               Get in touch <ArrowRight size={16} strokeWidth={2} />
             </a>
@@ -116,7 +116,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
               href={githubUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-line-2 bg-surface px-6 py-3.5 text-[14px] font-medium text-ink shadow-[0_2px_8px_rgba(0,0,0,0.12)] transition hover:bg-surface-2 active:scale-[0.98]"
+              className="flex items-center gap-2 rounded-xl border border-line-2 bg-surface px-6 py-3.5 text-ui font-medium text-ink shadow-[0_2px_8px_rgba(0,0,0,0.12)] transition hover:bg-surface-2 active:scale-[0.98]"
             >
               <Github size={16} strokeWidth={1.8} /> GitHub
             </a>
