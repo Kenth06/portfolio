@@ -10,10 +10,11 @@ export function TopNav({ active, setActive }: { active: Tab; setActive: (tab: Ta
       transition={{ duration: 0.55, ease: "easeOut" }}
       className="absolute inset-x-0 top-6 z-50 flex items-center justify-between px-6 sm:top-7 sm:px-10"
     >
-      {/* Wordmark → Home */}
+      {/* Wordmark → Home. A wordmark never wraps, so it steps down a size on
+          narrow viewports rather than breaking across two lines. */}
       <button
         onClick={() => setActive("Home")}
-        className="text-[18px] font-semibold tracking-[-0.02em] text-ink transition hover:opacity-80"
+        className="whitespace-nowrap text-copy-sm font-semibold tracking-[-0.02em] text-ink transition hover:opacity-80 sm:text-wordmark"
       >
         {profile.name}
       </button>
@@ -26,7 +27,7 @@ export function TopNav({ active, setActive }: { active: Tab; setActive: (tab: Ta
               <button
                 key={tab}
                 onClick={() => setActive(tab)}
-                className="relative h-10 min-w-[72px] rounded-full px-4 text-[14px] font-medium tracking-[-0.01em] text-ink-2 transition hover:text-ink sm:text-[15px]"
+                className="relative h-10 whitespace-nowrap rounded-full px-3 text-ui font-medium text-ink-2 transition hover:text-ink sm:min-w-[72px] sm:px-4 sm:text-copy-sm"
               >
                 {active === tab && (
                   <motion.span
