@@ -3,13 +3,17 @@ import { AsciiField } from "../ascii/AsciiField";
 
 /**
  * Compact identity field for inner pages: the same oxide surface and ASCII
- * field as the home hero, at a shorter height, with the page title set inside it.
+ * field as the home hero, at a shorter height. The canvas sits in its own band
+ * between the nav and the title, so glyphs never run behind text.
  */
 export function FieldHeader({ title, meta, seed }: { title: string; meta: ReactNode; seed: number }) {
   return (
-    <section className="relative flex min-h-[26rem] flex-col justify-end overflow-hidden bg-field px-6 pb-10 pt-28 text-field-ink sm:h-[52svh] sm:px-10 lg:px-14 lg:pb-14">
-      <AsciiField seed={seed} fontSize={12} className="absolute inset-0 h-full w-full opacity-60" />
-      <div className="relative flex flex-wrap items-end justify-between gap-6">
+    <section className="flex h-[30rem] flex-col bg-field px-6 pb-10 text-field-ink sm:h-[60svh] sm:min-h-[30rem] sm:px-10 lg:px-14 lg:pb-14">
+      <div aria-hidden className="h-20 shrink-0" />
+      <div className="relative -mx-6 min-h-0 flex-1 overflow-hidden sm:-mx-10 lg:-mx-14">
+        <AsciiField seed={seed} fontSize={12} className="absolute inset-0 h-full w-full opacity-80" />
+      </div>
+      <div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 pt-6">
         <h1 className="text-display-lg font-medium sm:text-display-xl">{title}</h1>
         <p className="font-mono text-label opacity-70">{meta}</p>
       </div>

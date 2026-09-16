@@ -26,9 +26,13 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
     <div>
       {/* First screen is exactly one viewport: identity field above, claim band below. */}
       <div className="grid h-svh min-h-[36rem] grid-rows-[minmax(0,1fr)_auto]">
-        <section className="relative overflow-hidden bg-field text-field-ink">
-          <AsciiField className="absolute inset-0 h-full w-full" fontSize={13} />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap justify-between gap-2 px-6 pb-5 font-mono text-label opacity-70 sm:px-10 lg:px-14">
+        {/* The canvas gets its own band between the nav and the caption, so glyphs never run under text. */}
+        <section className="flex min-h-0 flex-col bg-field text-field-ink">
+          <div aria-hidden className="h-20 shrink-0" />
+          <div className="relative min-h-0 flex-1 overflow-hidden">
+            <AsciiField className="absolute inset-0 h-full w-full" fontSize={13} />
+          </div>
+          <div className="flex flex-wrap justify-between gap-2 px-6 pb-5 pt-3 font-mono text-label opacity-70 sm:px-10 lg:px-14">
             <span>David, Panamá</span>
             <span className="hidden sm:inline">
               Now: {current.role} at {current.company}

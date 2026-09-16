@@ -11,6 +11,12 @@ type Props = {
 
 const FRAME_MS = 1000 / 30;
 
+/** Hermite smoothstep; edge0 may be greater than edge1 for a falling ramp. */
+function smoothstep(edge0: number, edge1: number, x: number) {
+  const t = Math.min(1, Math.max(0, (x - edge0) / (edge1 - edge0)));
+  return t * t * (3 - 2 * t);
+}
+
 /**
  * Generative ASCII field: a few soft masses drift through a domain-warped noise
  * field, banded into contour lines. Purpose: the hero's identity artifact
@@ -43,13 +49,16 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
       const unit = Math.min(width, height) || 1;
       pointer.strength += (pointer.target - pointer.strength) * 0.08;
 
-      // Three masses on slow Lissajous paths, in unit space centered on the canvas.
+      // Three masses on slow Lissajous paths. Travel is a fraction of the canvas's own
+      // width and height, so on a narrow portrait canvas they stay inside it.
       const cx = width / unit / 2;
       const cy = height / unit / 2;
+      const ax = cx * 0.55;
+      const ay = cy * 0.4;
       const masses = [
-        { x: cx + Math.sin(t * 0.00011) * 0.42, y: cy + Math.cos(t * 0.00013) * 0.18, r: 0.34 },
-        { x: cx + Math.cos(t * 0.00009 + 2) * 0.55, y: cy + Math.sin(t * 0.00012 + 1) * 0.24, r: 0.26 },
-        { x: cx + Math.sin(t * 0.00007 + 4) * 0.3, y: cy + Math.cos(t * 0.0001 + 3) * 0.3, r: 0.22 },
+        { x: cx + Math.sin(t * 0.00011) * ax, y: cy + Math.cos(t * 0.00013) * ay, r: 0.34 },
+        { x: cx + Math.cos(t * 0.00009 + 2) * ax, y: cy + Math.sin(t * 0.00012 + 1) * ay, r: 0.26 },
+        { x: cx + Math.sin(t * 0.00007 + 4) * ax * 0.6, y: cy + Math.cos(t * 0.0001 + 3) * ay, r: 0.22 },
       ];
 
       for (let r = 0; r < g.rows; r++) {
@@ -73,11 +82,11 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
             v += pointer.strength * 0.9 * Math.exp(-(dx * dx + dy * dy) / 0.02);
           }
 
-          // Soft elliptical falloff so the form floats inside the field instead of filling a box.
-          const nx = (c / g.cols - 0.5) * 2;
-          const ny = (r / g.rows - 0.5) * 2;
-          const edge = Math.max(0, 1 - Math.pow(nx * nx * 0.9 + ny * ny * 0.75, 2));
-          v *= edge;
+          // Falloff reaches exactly zero at every edge, so glyphs never get cut off at the
+          // canvas border or touch the text placed around it.
+          const nx = Math.abs(((c + 0.5) / g.cols - 0.5) * 2);
+          const ny = Math.abs(((r + 0.5) / g.rows - 0.5) * 2);
+          v *= smoothstep(1, 0.72, nx) * smoothstep(1, 0.55, ny);
 
           // Below the threshold the field stays empty: negative space is part of the form.
           if (v < 0.32) {
