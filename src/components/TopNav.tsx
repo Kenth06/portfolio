@@ -2,46 +2,39 @@ import { motion } from "framer-motion";
 import { profile } from "../content";
 import { tabs, type Tab } from "../types";
 
+/** Floats over the oxide field on every page, so it is always drawn in field ink. */
 export function TopNav({ active, setActive }: { active: Tab; setActive: (tab: Tab) => void }) {
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.55, ease: "easeOut" }}
-      className="absolute inset-x-0 top-6 z-50 flex items-center justify-between px-6 sm:top-7 sm:px-10"
-    >
-      {/* Wordmark → Home. A wordmark never wraps, so it steps down a size on
-          narrow viewports rather than breaking across two lines. */}
+    <header className="absolute inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 text-field-ink sm:px-10 lg:px-14">
       <button
         onClick={() => setActive("Home")}
-        className="whitespace-nowrap text-copy-sm font-semibold tracking-[-0.02em] text-ink transition hover:opacity-80 sm:text-wordmark"
+        className="whitespace-nowrap text-wordmark font-medium transition-opacity hover:opacity-80"
       >
         {profile.name}
       </button>
 
-      {/* Nav pill, aligned to the right, matching the design */}
-      <nav>
-        <div className="rounded-full border border-line bg-surface/80 p-1.5 backdrop-blur-2xl">
-          <div className="relative flex items-center gap-0.5">
-            {tabs.map((tab) => (
+      <nav aria-label="Primary">
+        <ul className="flex items-center gap-5 sm:gap-7">
+          {tabs.map((tab) => (
+            <li key={tab}>
               <button
-                key={tab}
                 onClick={() => setActive(tab)}
-                className="relative h-10 whitespace-nowrap rounded-full px-3 text-ui font-medium text-ink-2 transition hover:text-ink sm:min-w-[72px] sm:px-4 sm:text-copy-sm"
+                aria-current={active === tab ? "page" : undefined}
+                className={`relative py-1.5 text-ui transition-opacity ${active === tab ? "opacity-100" : "opacity-70 hover:opacity-100"}`}
               >
+                {tab}
                 {active === tab && (
                   <motion.span
-                    layoutId="top-nav-active"
-                    className="absolute inset-0 rounded-full bg-ink/[0.06] ring-1 ring-line dark:bg-white/[0.10]"
-                    transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                    layoutId="nav-indicator"
+                    className="absolute inset-x-0 -bottom-0.5 h-px bg-field-ink"
+                    transition={{ type: "spring", bounce: 0, duration: 0.3 }}
                   />
                 )}
-                <span className={`relative z-10 ${active === tab ? "text-ink" : ""}`}>{tab}</span>
               </button>
-            ))}
-          </div>
-        </div>
+            </li>
+          ))}
+        </ul>
       </nav>
-    </motion.header>
+    </header>
   );
 }

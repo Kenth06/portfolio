@@ -1,27 +1,26 @@
 import { profile, socialLinks } from "../content";
 import { ThemeToggle } from "./ThemeToggle";
 
-/** Slim bottom bar shared across pages: copyright, social links, theme toggle. */
 export function Footer() {
   return (
-    <div className="flex flex-col gap-4 border-t border-line py-7 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
-      <p className="text-meta tabular-nums text-ink-3">
-        © {new Date().getFullYear()} {profile.name}
+    <footer className="flex flex-col gap-4 border-t border-line px-6 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-14">
+      <p className="font-mono text-label tabular-nums text-ink-3">
+        © {new Date().getFullYear()} {profile.name} · David, Panamá
       </p>
-      <div className="flex items-center justify-center gap-6 sm:justify-end">
+      <div className="flex items-center gap-6">
         {socialLinks.map((link) => (
           <a
             key={link.label}
             href={link.href}
-            target="_blank"
+            target={link.href.startsWith("mailto:") ? undefined : "_blank"}
             rel="noreferrer"
-            className="text-meta font-medium text-ink-2 transition hover:text-accent"
+            className="text-meta text-ink-2 transition-colors hover:text-ink"
           >
             {link.label}
           </a>
         ))}
         <ThemeToggle />
       </div>
-    </div>
+    </footer>
   );
 }
