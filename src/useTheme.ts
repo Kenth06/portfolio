@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 export type Theme = "light" | "dark";
 
-const themeColorDark = "#0e0e10";
-const themeColorLight = "#fbfbfa";
+const themeColorDark = "#191714";
+const themeColorLight = "#fcfbfa";
 
 /** Read the theme the bootstrap script already applied to <html>. */
 function getInitialTheme(): Theme {

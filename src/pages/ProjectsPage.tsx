@@ -1,35 +1,20 @@
-import { motion } from "framer-motion";
 import { projects } from "../content";
-import { ProjectCard } from "../components/ProjectCard";
+import { ContactBlock } from "../components/ContactBlock";
+import { FieldHeader } from "../components/FieldHeader";
 import { Footer } from "../components/Footer";
+import { ProjectRow } from "../components/ProjectRow";
 
 export function ProjectsPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
-      className="px-6 pb-24 pt-32 sm:px-10 sm:pt-40"
-    >
-      <motion.header
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.05, duration: 0.6, ease: "easeOut" }}
-        className="border-b border-line pb-10"
-      >
-        <h1 className="font-serif text-display text-ink sm:text-display-lg">Projects</h1>
-      </motion.header>
-
-      <div className="grid grid-cols-1 gap-x-6 gap-y-14 pt-12 sm:grid-cols-2">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.slug} project={project} index={index} />
+    <div>
+      <FieldHeader title="Projects" meta={`${projects.length} projects · 2024–2026`} seed={21} />
+      <section className="px-6 py-16 sm:px-10 sm:py-24 lg:px-14">
+        {projects.map((project, i) => (
+          <ProjectRow key={project.slug} project={project} index={i} />
         ))}
-      </div>
-
-      <div className="mt-24">
-        <Footer />
-      </div>
-    </motion.div>
+      </section>
+      <ContactBlock />
+      <Footer />
+    </div>
   );
 }
