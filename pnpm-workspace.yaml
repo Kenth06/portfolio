@@ -1,0 +1,14 @@
+# Single-package repo. `packages` is required so pnpm 9 (used by Cloudflare Workers
+# Builds for lockfile v9) accepts this file; pnpm 11 reads `allowBuilds` from it.
+packages:
+  - "."
+
+# Build scripts pnpm 11 must decide on explicitly. The toolchain ones run (same as
+# pnpm 9 on CI). vgpu's Node/Dawn adapter is not used by the browser build, so its
+# native builds are skipped.
+allowBuilds:
+  esbuild: true
+  workerd: true
+  sharp: true
+  '@vgpu/adapter-node': false
+  webgpu: false

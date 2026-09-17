@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["vite/client"]
+    "types": ["vite/client", "vgpu/client"]
   },
   "include": ["src", "vite.config.ts", "cloudflare-env.d.ts"],
   "references": []

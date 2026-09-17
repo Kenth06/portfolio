@@ -176,7 +176,7 @@ export function AsciiImage({ src, seed, alt, fontSize = 9, revealOnHover = false
           src={src}
           alt=""
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none"
+          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-200 ease-[ease] group-hover:opacity-100 group-focus-within:opacity-100 motion-reduce:transition-none"
         />
       )}
     </div>
