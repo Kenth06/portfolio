@@ -81,7 +81,6 @@ const LOGO_HEIGHT_RATIO = 0.62;
 const MAX_RENDER_WIDTH = 1920;
 const PULSE_TRANSITION_SECONDS = 2;
 const PULSE_FLOOR = 0.2;
-// Warm white so the glow sits on the oxide field instead of reading as a second (cool) palette.
 const FLARE_COLOR = [1, 0.88, 0.76] as const;
 const BLUR_CENTER_WEIGHT = 0.0799404796215474;
 const BLUR_TAPS = [

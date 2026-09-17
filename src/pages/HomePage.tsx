@@ -11,10 +11,12 @@ import type { Tab } from "../types";
 
 const current = experience[0];
 
-export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
+export function HomePage({ setActive, animateEntrance }: { setActive: (tab: Tab) => void; animateEntrance: boolean }) {
   const reduced = useReducedMotion();
   const enter = (delay: number) =>
-    reduced
+    !animateEntrance
+      ? { initial: false as const }
+      : reduced
       ? { initial: { opacity: 0 }, animate: { opacity: 1 }, transition: { duration: 0.2 } }
       : {
           initial: { opacity: 0, transform: "translateY(16px)" },
@@ -24,9 +26,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
 
   return (
     <div>
-      {/* First screen is exactly one viewport: identity field above, claim band below. */}
       <div className="grid h-svh min-h-[36rem] grid-rows-[minmax(0,1fr)_auto]">
-        {/* The canvas gets its own band between the nav and the caption, so glyphs never run under text. */}
         <section className="flex min-h-0 flex-col bg-field text-field-ink">
           <div aria-hidden className="h-20 shrink-0" />
           <div className="relative min-h-0 flex-1 overflow-hidden">

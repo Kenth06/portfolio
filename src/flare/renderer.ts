@@ -27,7 +27,6 @@ export function createRenderer({
   still = false,
 }: {
   readonly canvas: HTMLCanvasElement;
-  /** Render a few settled frames with a fixed light, then stop (reduced motion). */
   readonly still?: boolean;
 }) {
   let disposed = false;
@@ -93,8 +92,6 @@ export function createRenderer({
   };
 
   const drainResizes = async () => {
-    // Resizes must apply one at a time (each rebuilds GPU targets), and `disposed`
-    // flips asynchronously from dispose(), so both lint rules are intentional here.
     // oxlint-disable-next-line no-unmodified-loop-condition
     while (pendingSize && !disposed) {
       const size = pendingSize;
@@ -156,7 +153,6 @@ export function createRenderer({
     if (disposed) return;
     guard(() => {
       const activePipeline = pipeline;
-      // Still mode: a handful of frames lets the blue-noise ray walk settle, then stop.
       if (still && frameIndex >= 8) return;
       animationFrame = requestAnimationFrame(frameLoop);
       if (!visible || document.hidden) return;

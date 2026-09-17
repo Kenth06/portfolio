@@ -1,14 +1,8 @@
 // Adapted from vercel-labs/vgpu (apps/docs/examples/nextjs-flare), MIT License,
-// Copyright (c) 2025 Vercel, Inc. Change: the glyph is Kenneth's "K" monogram
-// instead of the Next.js mark. The SVG keeps the original 514x624 box
-// (viewBox -48 -88, glyph inside 0..466 x 0..536) so the placement constants in
-// pipeline.ts still center it.
+// Copyright (c) 2025 Vercel, Inc. Change: "K" monogram instead of the Next.js mark.
 
 import { logoPixelSize } from "./pipeline";
 
-// Outline-only strokes with fading gradients: the rim shader lights edges, so the
-// glyph is drawn as a stroked contour. The gradients only soften toward the bottom
-// (never to zero) so the lower stem and leg stay legible when the light is up top.
 const LOGO_SVG =
   '<svg width="514" height="624" viewBox="-48 -88 514 624" fill="none" ' +
   'xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#c)">' +

@@ -5,10 +5,6 @@ import type { Project } from "../content";
 import { ProjectImage } from "./ProjectImage";
 import { Reveal } from "./Reveal";
 
-/**
- * One project as an inspectable row: mono index and metadata, a large title,
- * and the project image. `featured` stacks the image full-width above the text.
- */
 export function ProjectRow({ project, index, featured = false }: { project: Project; index: number; featured?: boolean }) {
   const [open, setOpen] = useState(false);
   const reduced = useReducedMotion();
@@ -62,7 +58,6 @@ export function ProjectRow({ project, index, featured = false }: { project: Proj
               </button>
             </div>
 
-            {/* Notes appear in place (no height animation, which would re-run layout every frame). */}
             {open && (
               <motion.ul
                 id={detailsId}

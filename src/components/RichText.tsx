@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 
-/** Parse inline `[label](url)` markdown into links. */
 export function RichText({ text }: { text: string }) {
   const parts: ReactNode[] = [];
   const regex = /\[([^\]]+)\]\(([^)]+)\)/g;

@@ -5,10 +5,6 @@
    system preference. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Design tokens.
-   One saturated identity field (oxide) used as a full surface in the hero and
-   as the primary action fill. Everything else is neutral. On the field,
-   hierarchy comes from white alpha steps, never from a second hue. */
 :root {
   --bg: oklch(0.99 0.002 60);
   --surface: oklch(0.965 0.003 60);
@@ -20,7 +16,6 @@
   --field: oklch(0.5 0.15 38);
   --field-ink: oklch(0.99 0.01 60);
   --accent: var(--field);
-  /* Semantic: confirmation only (e.g. copied). Never decorative. */
   --success: oklch(0.55 0.13 152);
 }
 
@@ -50,28 +45,21 @@
   --color-accent: var(--accent);
   --color-success: var(--success);
 
-  /* Geist carries display and text; Geist Mono is reserved for machine-shaped
-     content: ASCII art, indexes, dates, labels. */
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Arial, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* Motion tokens. Strong curves: built-in ease-out is too weak for deliberate motion.
-   Mirrored in src/motion.ts for Framer Motion. */
 @theme {
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-/* Measure cap for running text. em, not ch (ch is the width of the zero). */
+/* em, not ch: ch is the width of the zero. */
 @theme {
   --container-measure: 34em;
 }
 
-/* Type scale, named by role. Line-height and tracking are baked in so a role
-   is one class. Display runs at weight 500 with tight tracking: hierarchy by
-   size contrast, not by heavy weight. Nothing below 12px. */
 @theme {
   --text-display-xl: 5rem; /* 80px */
   --text-display-xl--line-height: 0.96;

@@ -1,6 +1,5 @@
 import { useTheme } from "../useTheme";
 
-/** Plain text toggle; the label names the mode you switch to. */
 export function ThemeToggle() {
   const { theme, toggle } = useTheme();
   const next = theme === "dark" ? "light" : "dark";

@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { profile } from "../content";
 import { tabs, type Tab } from "../types";
 
-/** Floats over the oxide field on every page, so it is always drawn in field ink. */
 export function TopNav({ active, setActive }: { active: Tab; setActive: (tab: Tab) => void }) {
   return (
     <header className="absolute inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-6 text-field-ink sm:px-10 lg:px-14">

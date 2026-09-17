@@ -2,16 +2,6 @@ import type { Project } from "../content";
 import { ProjectImage } from "./ProjectImage";
 import { Reveal } from "./Reveal";
 
-/**
- * Compact project index for the home page: one scannable row per project
- * (thumbnail, title + one-line summary, stack, date). Full notes live on the
- * Projects page. The whole row is the hit area via a stretched title link, so
- * there are no nested interactive elements.
- *
- * Hover is a tens-of-times-a-day interaction, so it stays near-imperceptible:
- * only the title shifts color (200ms `ease`). Tailwind v4 already gates `hover:`
- * behind `(hover: hover)`, so touch taps never leave a stuck hover state.
- */
 export function ProjectIndex({ projects }: { projects: Project[] }) {
   return (
     <ol className="border-b border-line">

@@ -7,10 +7,6 @@ const emailHref = socialLinks.find((l) => l.label === "Email")?.href ?? "mailto:
 const email = emailHref.replace("mailto:", "");
 const COPIED_HOLD_MS = 1800;
 
-/**
- * Closing CTA. An oxide band with the flare "K" bookends the page (the hero opens on
- * the same field), then the centered ask with the email and a working copy button.
- */
 export function ContactBlock() {
   const [copied, setCopied] = useState(false);
   const timer = useRef<number>();
@@ -25,7 +21,6 @@ export function ContactBlock() {
       return;
     }
     setCopied(true);
-    // Repeated clicks restart the hold instead of stacking timers.
     window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => setCopied(false), COPIED_HOLD_MS);
   };
@@ -47,13 +42,6 @@ export function ContactBlock() {
               Send an email
             </a>
 
-            {/*
-              Copy feedback. State lives in data-copied and every change is a CSS transition,
-              so rapid re-clicks retarget instead of restarting. Press: scale 0.97 over 160ms.
-              Border and text shift to the success color (200ms ease). The two labels share
-              one grid cell (no width jump) and crossfade with a 2px blur so the swap reads
-              as one transformation; the check stroke draws in behind it.
-            */}
             <button
               onClick={copy}
               data-copied={copied}

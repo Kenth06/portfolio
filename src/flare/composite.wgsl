@@ -92,7 +92,5 @@ fn resolveDarkColor(radiance: vec3f) -> vec3f {
   let logoCoverage = max(scene, max(rimSample, rimBlur));
   let grainMask = beamGate * (1.0 - smoothstep(0.02, 0.3, logoCoverage)) * edgeMask;
   let grained = clamp(composed + vec3f(grain * params.filmGrain * grainMask), vec3f(0.0), vec3f(1.0));
-  // Premultiplied output: brightness becomes coverage, so the glow composites over the
-  // page surface instead of painting an opaque black rectangle.
   return vec4f(grained, max(grained.r, max(grained.g, grained.b)));
 }

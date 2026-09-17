@@ -2,10 +2,6 @@ import { experience } from "../content";
 import { Reveal } from "./Reveal";
 import { RichText } from "./RichText";
 
-/**
- * Career as a row list: mono period, role and company, location. `detailed` adds
- * the highlights under each role.
- */
 export function ExperienceList({ detailed = false }: { detailed?: boolean }) {
   return (
     <ol className="border-b border-line">

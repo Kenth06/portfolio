@@ -4,13 +4,6 @@ import { K_PATHS, K_VIEWBOX } from "./k-glyph";
 
 type Mode = "idle" | "gpu" | "fallback";
 
-/**
- * The closing "K" rendered as a rim-lit volumetric flare (WebGPU via vgpu).
- * The renderer and vgpu are loaded only when the section nears the viewport,
- * so they never cost the first paint. Without WebGPU, or if init fails, a
- * static outline of the same glyph stays in place. Reduced motion renders a
- * settled still frame instead of the animated light.
- */
 export function FlareMark({ className = "" }: { className?: string }) {
   const hostRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -58,7 +51,6 @@ export function FlareMark({ className = "" }: { className?: string }) {
       try {
         dispose?.();
       } catch {
-        // Teardown of a failed renderer is best effort.
       }
     };
   }, [reduced]);

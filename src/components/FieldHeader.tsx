@@ -1,11 +1,6 @@
 import type { ReactNode } from "react";
 import { AsciiField } from "../ascii/AsciiField";
 
-/**
- * Compact identity field for inner pages: the same oxide surface and ASCII
- * field as the home hero, at a shorter height. The canvas sits in its own band
- * between the nav and the title, so glyphs never run behind text.
- */
 export function FieldHeader({ title, meta, seed }: { title: string; meta: ReactNode; seed: number }) {
   return (
     <section className="flex h-[30rem] flex-col bg-field px-6 pb-10 text-field-ink sm:h-[60svh] sm:min-h-[30rem] sm:px-10 lg:px-14 lg:pb-14">

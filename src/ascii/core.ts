@@ -1,4 +1,3 @@
-/** Density ramp, light to dense. The leading space keeps empty cells empty. */
 export const RAMP = " .:-=+*#%@";
 
 export const MONO_FONT = '"Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
@@ -11,7 +10,6 @@ export type Grid = {
   fontSize: number;
 };
 
-/** Size a canvas to its CSS box at device pixel ratio and return a grid of monospace cells. */
 export function fitCanvas(canvas: HTMLCanvasElement, fontSize: number): { ctx: CanvasRenderingContext2D; grid: Grid } | null {
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
@@ -36,11 +34,6 @@ export function fitCanvas(canvas: HTMLCanvasElement, fontSize: number): { ctx: C
   };
 }
 
-/**
- * Draw a grid of densities (0..1) as ASCII. Cells are bucketed by ramp level and
- * each level is drawn as whole row strings, so a frame costs levels x rows
- * fillText calls instead of one per cell.
- */
 export function drawDensity(
   ctx: CanvasRenderingContext2D,
   grid: Grid,
@@ -78,7 +71,6 @@ export function drawDensity(
   ctx.globalAlpha = 1;
 }
 
-/** Deterministic hash noise. */
 function hash(x: number, y: number, seed: number) {
   const h = Math.sin(x * 127.1 + y * 311.7 + seed * 74.7) * 43758.5453;
   return h - Math.floor(h);
@@ -88,7 +80,6 @@ function smooth(t: number) {
   return t * t * (3 - 2 * t);
 }
 
-/** 2D value noise in 0..1. */
 export function noise(x: number, y: number, seed = 0) {
   const xi = Math.floor(x);
   const yi = Math.floor(y);
@@ -105,7 +96,6 @@ export function fbm(x: number, y: number, seed = 0) {
   return noise(x, y, seed) * 0.6 + noise(x * 2.03, y * 2.03, seed + 1) * 0.28 + noise(x * 4.1, y * 4.1, seed + 2) * 0.12;
 }
 
-/** Resolve a CSS custom property to a concrete color string. */
 export function cssVar(name: string, el: Element = document.documentElement) {
   return getComputedStyle(el).getPropertyValue(name).trim() || "#000";
 }

@@ -1,11 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
 
-/**
- * Chapter wrapper: 1px rule on top, gutters, and a head (title
- * on the left, optional action on the right). Chapters are separated by
- * rules, never wrapped in cards.
- */
 export function Section({
   title,
   action,

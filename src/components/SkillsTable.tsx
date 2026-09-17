@@ -1,7 +1,6 @@
 import { skillGroups } from "../content";
 import { Reveal } from "./Reveal";
 
-/** Skills as a spec table: group name and summary on the left, items as running text on the right. */
 export function SkillsTable() {
   return (
     <dl className="border-b border-line">

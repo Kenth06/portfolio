@@ -4,25 +4,17 @@ import { useFontsReady, usePrefersReducedMotion } from "./hooks";
 
 type Props = {
   className?: string;
-  /** Glyph size in px. Smaller = finer image, more cells. */
   fontSize?: number;
   seed?: number;
 };
 
 const FRAME_MS = 1000 / 30;
 
-/** Hermite smoothstep; edge0 may be greater than edge1 for a falling ramp. */
 function smoothstep(edge0: number, edge1: number, x: number) {
   const t = Math.min(1, Math.max(0, (x - edge0) / (edge1 - edge0)));
   return t * t * (3 - 2 * t);
 }
 
-/**
- * Generative ASCII field: a few soft masses drift through a domain-warped noise
- * field, banded into contour lines. Purpose: the hero's identity artifact
- * ("systems in motion"). Pauses offscreen and in background tabs; renders a
- * single still frame under reduced motion; fine pointers bend the field.
- */
 export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduced = usePrefersReducedMotion();
@@ -49,8 +41,6 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
       const unit = Math.min(width, height) || 1;
       pointer.strength += (pointer.target - pointer.strength) * 0.08;
 
-      // Three masses on slow Lissajous paths. Travel is a fraction of the canvas's own
-      // width and height, so on a narrow portrait canvas they stay inside it.
       const cx = width / unit / 2;
       const cy = height / unit / 2;
       const ax = cx * 0.55;
@@ -66,7 +56,6 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
           const px = ((c + 0.5) * g.cellW) / unit;
           const py = ((r + 0.5) * g.cellH) / unit;
 
-          // Domain warp gives the masses soft, organic edges.
           const wx = px + (fbm(px * 1.6 + t * 0.00004, py * 1.6, seed) - 0.5) * 0.45;
           const wy = py + (fbm(px * 1.6, py * 1.6 - t * 0.00003, seed + 9) - 0.5) * 0.45;
 
@@ -82,18 +71,14 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
             v += pointer.strength * 0.9 * Math.exp(-(dx * dx + dy * dy) / 0.02);
           }
 
-          // Falloff reaches exactly zero at every edge, so glyphs never get cut off at the
-          // canvas border or touch the text placed around it.
           const nx = Math.abs(((c + 0.5) / g.cols - 0.5) * 2);
           const ny = Math.abs(((r + 0.5) / g.rows - 0.5) * 2);
           v *= smoothstep(1, 0.72, nx) * smoothstep(1, 0.55, ny);
 
-          // Below the threshold the field stays empty: negative space is part of the form.
           if (v < 0.32) {
             density[r * g.cols + c] = 0;
             continue;
           }
-          // Contour banding inside the masses turns them into drawn topography.
           const band = 0.55 + 0.45 * Math.sin(v * 14 - t * 0.0007);
           density[r * g.cols + c] = Math.min(1, (v - 0.32) * 1.6) * band + 0.08;
         }
@@ -111,6 +96,7 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
     if (reduced) {
       render(24000);
     } else {
+      render(performance.now() - start);
       raf = requestAnimationFrame(loop);
     }
 
@@ -119,7 +105,7 @@ export function AsciiField({ className, fontSize = 13, seed = 7 }: Props) {
       if (!fitted) return;
       ({ ctx, grid } = fitted);
       density = new Float32Array(grid.cols * grid.rows);
-      if (reduced) render(24000);
+      render(reduced ? 24000 : performance.now() - start);
     });
     resize.observe(canvas);
 

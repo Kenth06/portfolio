@@ -1,8 +1,3 @@
-/**
- * The "K" monogram contour, in the flare's 514x624 box (viewBox -48 -88, glyph in
- * 0..466 x 0..536). Kept dependency-free so the static fallback does not pull
- * vgpu into the main bundle. Must match the paths in logo-raster.ts.
- */
 export const K_VIEWBOX = "-48 -88 514 624";
 
 export const K_PATHS = [
