@@ -26,9 +26,9 @@ export function ExperienceList({ detailed = false }: { detailed?: boolean }) {
                 )}
               </h3>
               {detailed && (
-                <ul className="max-w-measure space-y-2.5 pt-4">
+                <ul className="max-w-measure list-disc space-y-2.5 pl-5 pt-4 marker:text-ink-3">
                   {job.highlights.map((h) => (
-                    <li key={h} className="text-copy text-ink-2">
+                    <li key={h} className="pl-1 text-copy text-ink-2">
                       <RichText text={h} />
                     </li>
                   ))}
