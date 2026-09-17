@@ -20,6 +20,8 @@
   --field: oklch(0.5 0.15 38);
   --field-ink: oklch(0.99 0.01 60);
   --accent: var(--field);
+  /* Semantic: confirmation only (e.g. copied). Never decorative. */
+  --success: oklch(0.55 0.13 152);
 }
 
 .dark {
@@ -32,6 +34,7 @@
   --border-2: oklch(0.96 0.004 60 / 0.18);
   --field: oklch(0.46 0.13 38);
   --accent: oklch(0.72 0.15 40);
+  --success: oklch(0.78 0.14 152);
 }
 
 @theme inline {
@@ -45,6 +48,7 @@
   --color-field: var(--field);
   --color-field-ink: var(--field-ink);
   --color-accent: var(--accent);
+  --color-success: var(--success);
 
   /* Geist carries display and text; Geist Mono is reserved for machine-shaped
      content: ASCII art, indexes, dates, labels. */

@@ -1,0 +1,5 @@
+# vgpu pulls in a Node/Dawn adapter with native build scripts. The portfolio only uses
+# vgpu in the browser (WebGPU), so those native builds are intentionally skipped.
+allowBuilds:
+  '@vgpu/adapter-node': false
+  webgpu: false

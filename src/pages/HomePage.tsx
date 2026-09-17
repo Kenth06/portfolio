@@ -4,7 +4,7 @@ import { AsciiField } from "../ascii/AsciiField";
 import { ContactBlock } from "../components/ContactBlock";
 import { ExperienceList } from "../components/ExperienceList";
 import { Footer } from "../components/Footer";
-import { ProjectRow } from "../components/ProjectRow";
+import { ProjectIndex } from "../components/ProjectIndex";
 import { Section } from "../components/Section";
 import { EASE_OUT } from "../motion";
 import type { Tab } from "../types";
@@ -76,9 +76,7 @@ export function HomePage({ setActive }: { setActive: (tab: Tab) => void }) {
           </button>
         }
       >
-        {projects.slice(0, 3).map((project, i) => (
-          <ProjectRow key={project.slug} project={project} index={i} featured={i === 0} />
-        ))}
+        <ProjectIndex projects={projects.slice(0, 4)} />
       </Section>
 
       <Section
