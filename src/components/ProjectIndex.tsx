@@ -1,8 +1,6 @@
 import type { Project } from "../content";
-import { AsciiImage } from "../ascii/AsciiImage";
+import { ProjectImage } from "./ProjectImage";
 import { Reveal } from "./Reveal";
-
-const hasImage = (p: Project) => Boolean(p.cardImage && !p.cardImage.includes("placeholder"));
 
 /**
  * Compact project index for the home page: one scannable row per project
@@ -11,25 +9,19 @@ const hasImage = (p: Project) => Boolean(p.cardImage && !p.cardImage.includes("p
  * there are no nested interactive elements.
  *
  * Hover is a tens-of-times-a-day interaction, so it stays near-imperceptible:
- * the ASCII thumbnail crossfades to the real image and the title shifts color,
- * both 200ms `ease`. Tailwind v4 already gates `hover:` behind
- * `(hover: hover)`, so touch taps never leave a stuck hover state.
+ * only the title shifts color (200ms `ease`). Tailwind v4 already gates `hover:`
+ * behind `(hover: hover)`, so touch taps never leave a stuck hover state.
  */
 export function ProjectIndex({ projects }: { projects: Project[] }) {
   return (
     <ol className="border-b border-line">
       {projects.map((project, i) => {
         const href = project.url ?? project.github;
-        const image = hasImage(project) ? project.cardImage : undefined;
         return (
           <Reveal key={project.slug} delay={Math.min(i, 4) * 0.05}>
             <li className="group relative grid grid-cols-[5.5rem_minmax(0,1fr)] items-center gap-x-5 gap-y-1 border-t border-line py-5 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-x-8 lg:grid-cols-[9rem_minmax(0,1fr)_minmax(0,15rem)_4.5rem]">
-              <AsciiImage
-                src={image}
-                seed={project.slug}
-                alt={project.title}
-                revealOnHover
-                fontSize={5}
+              <ProjectImage
+                project={project}
                 className="row-span-2 aspect-[4/3] self-start lg:row-span-1 lg:self-center"
               />
 
