@@ -2,21 +2,17 @@ import { useId, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { EASE_OUT } from "../motion";
 import type { Project } from "../content";
-import { AsciiImage } from "../ascii/AsciiImage";
+import { ProjectImage } from "./ProjectImage";
 import { Reveal } from "./Reveal";
-
-const hasImage = (p: Project) => Boolean(p.cardImage && !p.cardImage.includes("placeholder"));
 
 /**
  * One project as an inspectable row: mono index and metadata, a large title,
- * and the project image rendered as ASCII (hover or focus reveals the real
- * image). `featured` stacks the image full-width above the text.
+ * and the project image. `featured` stacks the image full-width above the text.
  */
 export function ProjectRow({ project, index, featured = false }: { project: Project; index: number; featured?: boolean }) {
   const [open, setOpen] = useState(false);
   const reduced = useReducedMotion();
   const detailsId = useId();
-  const image = hasImage(project) ? project.cardImage : undefined;
 
   return (
     <Reveal delay={Math.min(index, 3) * 0.06}>
@@ -25,12 +21,8 @@ export function ProjectRow({ project, index, featured = false }: { project: Proj
           featured ? "" : "lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-14"
         }`}
       >
-        <AsciiImage
-          src={image}
-          seed={project.slug}
-          alt={project.title}
-          revealOnHover
-          fontSize={8}
+        <ProjectImage
+          project={project}
           className={`${featured ? "aspect-[16/9] lg:aspect-[21/9]" : "aspect-[16/10] lg:order-2"}`}
         />
 

@@ -105,12 +105,6 @@ export function fbm(x: number, y: number, seed = 0) {
   return noise(x, y, seed) * 0.6 + noise(x * 2.03, y * 2.03, seed + 1) * 0.28 + noise(x * 4.1, y * 4.1, seed + 2) * 0.12;
 }
 
-export function seedFrom(text: string) {
-  let h = 0;
-  for (let i = 0; i < text.length; i++) h = (h * 31 + text.charCodeAt(i)) % 9973;
-  return h;
-}
-
 /** Resolve a CSS custom property to a concrete color string. */
 export function cssVar(name: string, el: Element = document.documentElement) {
   return getComputedStyle(el).getPropertyValue(name).trim() || "#000";

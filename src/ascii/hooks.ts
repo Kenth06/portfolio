@@ -13,17 +13,6 @@ export function usePrefersReducedMotion() {
   return reduced;
 }
 
-/** Increments whenever the `dark` class on <html> flips, so canvases can repaint with new colors. */
-export function useThemeVersion() {
-  const [version, setVersion] = useState(0);
-  useEffect(() => {
-    const observer = new MutationObserver(() => setVersion((v) => v + 1));
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
-  return version;
-}
-
 /** Resolves once web fonts are ready, so glyph metrics are measured against Geist Mono. */
 export function useFontsReady() {
   const [ready, setReady] = useState(false);
