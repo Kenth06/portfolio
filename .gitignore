@@ -23,7 +23,6 @@ Thumbs.db
 .vscode
 .idea
 
-# Agent skill symlinks. `.claude/skills/*` are absolute-path symlinks into
-# .agents/, so they are machine-specific. The skills themselves live in
-# .agents/ and are restorable from skills-lock.json.
+# Agent skills are local only; restore them from skills-lock.json.
 .claude
+.agents
